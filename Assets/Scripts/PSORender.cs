@@ -5,9 +5,12 @@ using UnityEngine;
 public class PSORender : MonoBehaviour
 {
     public TextAsset    runData;
+    public TextAsset    functionData;
     public float        timePerIteration = 1.0f;
     public PSOParticle  particlePrefab;
+    public PSOFunction  functionPrefab;
     public Gradient     colorParticles;
+    public bool         moveY = false;
 
     [Header("References")]
     public Camera       mainCamera;
@@ -67,6 +70,7 @@ public class PSORender : MonoBehaviour
 
             if (action == 0)
             {
+                if (!moveY) y = 0.0f;
                 particles[particleId].AddUpdateAction(iteration * timePerIteration, x, y, z);
             }
             else
@@ -86,6 +90,12 @@ public class PSORender : MonoBehaviour
             particle.scale = scale;
             particle.color = colorParticles.Evaluate(Random.Range(0.0f, 1.0f));
             particle.totalTime = totalTime;
+        }
+
+        if ((functionData) && (functionPrefab))
+        {
+            var visFunction = Instantiate(functionPrefab);
+            visFunction.Parse(functionData);
         }
     }
 
