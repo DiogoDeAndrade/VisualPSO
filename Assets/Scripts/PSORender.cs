@@ -11,6 +11,7 @@ public class PSORender : MonoBehaviour
     public PSOFunction  functionPrefab;
     public Gradient     colorParticles;
     public bool         moveY = false;
+    public float        yScale = 1.0f;
 
     [Header("References")]
     public Camera       mainCamera;
@@ -71,7 +72,7 @@ public class PSORender : MonoBehaviour
             if (action == 0)
             {
                 if (!moveY) y = 0.0f;
-                particles[particleId].AddUpdateAction(iteration * timePerIteration, x, y, z);
+                particles[particleId].AddUpdateAction(iteration * timePerIteration, x, y * yScale, z);
             }
             else
             {
@@ -95,7 +96,7 @@ public class PSORender : MonoBehaviour
         if ((functionData) && (functionPrefab))
         {
             var visFunction = Instantiate(functionPrefab);
-            visFunction.Parse(functionData);
+            visFunction.Parse(functionData, yScale);
         }
     }
 

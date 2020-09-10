@@ -23,7 +23,7 @@ public class PSOFunction : MonoBehaviour
         
     }
 
-    public void Parse(TextAsset data)
+    public void Parse(TextAsset data, float yScale = 1.0f)
     {
         var splitFile = new string[] { "\r\n", "\r", "\n" };
         var splitLine = new string[] { " " };
@@ -48,7 +48,7 @@ public class PSOFunction : MonoBehaviour
 
             for (int x = 0; x < nPoints.x; x++)
             {
-                float v = float.Parse(vals[x]);
+                float v = float.Parse(vals[x]) * yScale;
                 functionValues[x, y - 7] = v;
                 minY = Mathf.Min(v, minY);
                 maxY = Mathf.Max(v, maxY);
