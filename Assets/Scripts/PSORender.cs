@@ -12,6 +12,8 @@ public class PSORender : MonoBehaviour
     public Gradient     colorParticles;
     public bool         moveY = false;
     public float        yScale = 1.0f;
+    [Range(0.0f, 10.0f)]
+    public float        playSpeed = 1.0f;
 
     [Header("References")]
     public Camera       mainCamera;
@@ -67,6 +69,7 @@ public class PSORender : MonoBehaviour
                 particles[particleId].name = "Particle " + particleId;
                 particles[particleId].particleId = particleId;
                 particles[particleId].transform.position = new Vector3(x, 0, z);
+                particles[particleId].manager = this;
             }
 
             if (action == 0)
@@ -85,7 +88,7 @@ public class PSORender : MonoBehaviour
         float maxExtent = Mathf.Max(boundary.height, boundary.width);
         mainCamera.orthographicSize = (maxExtent * 0.5f) * 1.05f;
 
-        float scale = maxExtent / 10.0f;
+        float scale = maxExtent / 100.0f;
         foreach (var particle in particles)
         {
             particle.scale = scale;

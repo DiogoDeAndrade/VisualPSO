@@ -188,6 +188,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 1
   yScale: 1
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2
@@ -226,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &122719319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +278,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 1
   yScale: 1
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2
@@ -440,6 +442,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 1
   yScale: 1
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2
@@ -529,6 +532,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 1
   yScale: 1
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2
@@ -615,7 +619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &744878067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,7 +627,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744878066}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
   m_Name: 
@@ -666,6 +670,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 1
   yScale: 2
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2
@@ -755,6 +760,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 1
   yScale: 0.025
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2
@@ -793,7 +799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1295798266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,6 +850,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 1
   yScale: 0.025
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2
@@ -932,6 +939,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 0
   yScale: 1
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2
@@ -1021,6 +1029,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 1
   yScale: 0.05
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2
@@ -1121,7 +1130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 500, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1225,6 +1234,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 1
   yScale: 1
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2
@@ -1313,6 +1323,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   moveY: 0
   yScale: 1
+  playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
     serializedVersion: 2

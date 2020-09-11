@@ -10,32 +10,48 @@ public class PSOParticle : MonoBehaviour
         public Vector3  position;
     };
 
-    public int      particleId;
-    public Color    color = Color.white;
-    public float    scale = 1.0f;
-    public float    totalTime;
+    public int          particleId;
+    public Color        color = Color.white;
+    public float        scale = 1.0f;
+    public Transform[]  scalableObjects;
+    public float        totalTime;
+    public PSORender    manager;
 
     List<UpdateItem> positions;
     int              index;
     float            elapsedTime = 0.0f;
-    
+    TrailRenderer    trailRenderer;
+
     void Start()
     {
         index = 0;
 
-        TrailRenderer tr = GetComponent<TrailRenderer>();
-        if (tr)
+        trailRenderer = GetComponent<TrailRenderer>();
+        if (trailRenderer)
         {
-            tr.time = totalTime * 0.0005f;
-            tr.startColor = color;
-            tr.endColor = new Color(color.r, color.g, color.a, 0.0f);
+            trailRenderer.time = 1.0f * scale; // totalTime * 0.0005f;
+            trailRenderer.startColor = color;
+            trailRenderer.endColor = new Color(color.r, color.g, color.a, 0.0f);
+            trailRenderer.widthMultiplier = scale;
+        }
+        if (scalableObjects != null)
+        {
+            foreach (var t in scalableObjects)
+            {
+                t.localScale = t.localScale * scale;
+            }
         }
     }
 
     void Update()
     {
-        elapsedTime += Time.deltaTime;
-        
+        elapsedTime += Time.deltaTime * manager.playSpeed;
+
+        if (trailRenderer)
+        {
+            trailRenderer.time = (1.0f * scale) / manager.playSpeed;
+        }
+
         if ((index + 1) < positions.Count)
         {
             if (elapsedTime >= positions[index + 1].time)
@@ -61,9 +77,9 @@ public class PSOParticle : MonoBehaviour
         positions.Add(new UpdateItem { time = time, position = new Vector3(x, y, z) });
     }
 
-    private void OnDrawGizmos()
+/*    private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, scale * 0.125f);
-    }
+    }*/
 }
