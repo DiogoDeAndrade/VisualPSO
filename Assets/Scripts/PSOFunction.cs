@@ -37,7 +37,7 @@ public class PSOFunction : MonoBehaviour
         extents = new Rect(x1, y1, x2 - x1, y2 - y1);
         density = float.Parse(lines[6]);
 
-        functionValues = new float[nPoints.x,nPoints.y];
+        functionValues = new float[nPoints.y, nPoints.x];
 
         minY = float.MaxValue;
         maxY = -float.MaxValue;
@@ -49,7 +49,7 @@ public class PSOFunction : MonoBehaviour
             for (int x = 0; x < nPoints.x; x++)
             {
                 float v = float.Parse(vals[x]) * yScale;
-                functionValues[x, y - 7] = v;
+                functionValues[y - 7, x] = v;
                 minY = Mathf.Min(v, minY);
                 maxY = Mathf.Max(v, maxY);
             }
@@ -69,8 +69,23 @@ public class PSOFunction : MonoBehaviour
         {
             for (int x = 0; x < nPoints.x; x++)
             {
-                functionValues[x, y] = (functionValues[x, y] - minY) / (maxY - minY);
+                functionValues[y, x] = (functionValues[y, x] - minY) / (maxY - minY);
             }
         }
+    }
+
+    protected void FlipZ()
+    {
+        var flippedFunction = new float[nPoints.y, nPoints.x];
+
+        for (int y = 0; y < nPoints.y; y++)
+        {
+            for (int x = 0; x < nPoints.x; x++)
+            {
+                flippedFunction[y, x] = functionValues[nPoints.y - y - 1, x];
+            }
+        }
+
+        functionValues = flippedFunction;
     }
 }

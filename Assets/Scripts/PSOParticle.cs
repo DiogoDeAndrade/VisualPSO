@@ -16,11 +16,19 @@ public class PSOParticle : MonoBehaviour
     public Transform[]  scalableObjects;
     public float        totalTime;
     public PSORender    manager;
+    public LineRenderer connectionPrefab;
 
-    List<UpdateItem> positions;
-    int              index;
-    float            elapsedTime = 0.0f;
-    TrailRenderer    trailRenderer;
+    List<UpdateItem>    positions;
+    int                 index;
+    float               elapsedTime = 0.0f;
+    TrailRenderer       trailRenderer;
+
+    struct Connection
+    {
+        public PSOParticle  particle;
+        public LineRenderer lineRenderer;
+    }
+    List<Connection>    connections;
 
     void Start()
     {
@@ -41,6 +49,19 @@ public class PSOParticle : MonoBehaviour
                 t.localScale = t.localScale * scale;
             }
         }
+
+        MeshRenderer mr = GetComponentInChildren<MeshRenderer>();
+        if (mr)
+        {
+            Color c = color;
+            c = c * 5.0f;
+            c.a = color.a;
+
+            mr.material = new Material(mr.material);
+            mr.material.SetColor("_Color", c);
+        }
+
+        UpdateConnections();
     }
 
     void Update()
@@ -77,9 +98,36 @@ public class PSOParticle : MonoBehaviour
         positions.Add(new UpdateItem { time = time, position = new Vector3(x, y, z) });
     }
 
-/*    private void OnDrawGizmos()
+    public void AddConnection(PSOParticle particle)
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, scale * 0.125f);
-    }*/
+        if (connectionPrefab == null) return;
+
+        // Just keep one direction of the pair of particles (halves the line renderers needed)
+        if (particle.particleId < particleId) return;
+
+        if (connections == null) connections = new List<Connection>();
+
+        Connection conn = new Connection
+        {
+            particle = particle,
+            lineRenderer = Instantiate(connectionPrefab, transform)
+        };
+
+        connections.Add(conn);
+    }
+
+    private void LateUpdate()
+    {
+        UpdateConnections();
+    }
+
+    void UpdateConnections()
+    {
+        if (connections == null) return;
+
+        foreach (var c in connections)
+        {
+            c.lineRenderer.SetPositions(new Vector3[2] { transform.position, c.particle.transform.position });
+        }
+    }
 }

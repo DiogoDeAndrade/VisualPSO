@@ -9,6 +9,7 @@ public class PSOFunctionTerrain : PSOFunction
         Terrain terrain = GetComponent<Terrain>();
 
         NormalizeData();
+        //FlipZ();
         terrain.terrainData.size = new Vector3(extents.width, (maxY - minY), extents.height);
         terrain.terrainData.heightmapResolution = nPoints.x;
         terrain.terrainData.SetHeights(0, 0, functionValues);

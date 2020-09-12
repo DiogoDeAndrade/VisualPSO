@@ -6,6 +6,7 @@ public class PSORender : MonoBehaviour
 {
     public TextAsset    runData;
     public TextAsset    functionData;
+    public TextAsset    topologyData;
     public float        timePerIteration = 1.0f;
     public PSOParticle  particlePrefab;
     public PSOFunction  functionPrefab;
@@ -38,62 +39,85 @@ public class PSORender : MonoBehaviour
         float z2 = -float.MaxValue;
 
         totalTime = 0.0f;
+        boundary.Set(0, 0, 0, 0);
 
-        for (int idx = 1; idx < lines.Length; idx++)
+        if (lines.Length > 1)
         {
-            var line = lines[idx];
-            var tokens = line.Split(splitLine, System.StringSplitOptions.None);
-            int action = int.Parse(tokens[0]);
-            int iteration = int.Parse(tokens[1]);
-            int particleId = int.Parse(tokens[2]);
-            float x = float.Parse(tokens[3]);
-            float z = float.Parse(tokens[4]);
-            float y = float.Parse(tokens[5]);
-
-            x1 = Mathf.Min(x1, x);
-            x2 = Mathf.Max(x2, x);
-            z1 = Mathf.Min(z1, z);
-            z2 = Mathf.Max(z2, z);
-
-            totalTime = Mathf.Max(totalTime, iteration * timePerIteration);
-
-            if (particles.Count <= particleId)
+            for (int idx = 1; idx < lines.Length; idx++)
             {
-                for (int i = particles.Count; i <= particleId; i++) particles.Add(null);
+                var line = lines[idx];
+                var tokens = line.Split(splitLine, System.StringSplitOptions.None);
+                int action = int.Parse(tokens[0]);
+                int iteration = int.Parse(tokens[1]);
+                int particleId = int.Parse(tokens[2]);
+                float x = float.Parse(tokens[3]);
+                float z = float.Parse(tokens[4]);
+                float y = float.Parse(tokens[5]);
+
+                x1 = Mathf.Min(x1, x);
+                x2 = Mathf.Max(x2, x);
+                z1 = Mathf.Min(z1, z);
+                z2 = Mathf.Max(z2, z);
+
+                totalTime = Mathf.Max(totalTime, iteration * timePerIteration);
+
+                if (particles.Count <= particleId)
+                {
+                    for (int i = particles.Count; i <= particleId; i++) particles.Add(null);
+                }
+
+                if (particles[particleId] == null)
+                {
+                    // Create new particle
+                    particles[particleId] = Instantiate(particlePrefab);
+                    particles[particleId].name = "Particle " + particleId;
+                    particles[particleId].particleId = particleId;
+                    particles[particleId].transform.position = new Vector3(x, 0, z);
+                    particles[particleId].manager = this;
+                }
+
+                if (action == 0)
+                {
+                    if (!moveY) y = 0.0f;
+                    particles[particleId].AddUpdateAction(iteration * timePerIteration, x, y * yScale, z);
+                }
+                else
+                {
+                    Debug.Assert(false, "Unknown action!");
+                }
             }
 
-            if (particles[particleId] == null)
-            {
-                // Create new particle
-                particles[particleId] = Instantiate(particlePrefab);
-                particles[particleId].name = "Particle " + particleId;
-                particles[particleId].particleId = particleId;
-                particles[particleId].transform.position = new Vector3(x, 0, z);
-                particles[particleId].manager = this;
-            }
+            boundary.Set(x1, z1, x2 - x1, z2 - z1);
 
-            if (action == 0)
+            float maxExtent = Mathf.Max(boundary.height, boundary.width);
+            mainCamera.orthographicSize = (maxExtent * 0.5f) * 1.05f;
+
+            float scale = maxExtent / 100.0f;
+            foreach (var particle in particles)
             {
-                if (!moveY) y = 0.0f;
-                particles[particleId].AddUpdateAction(iteration * timePerIteration, x, y * yScale, z);
-            }
-            else
-            {
-                Debug.Assert(false, "Unknown action!");
+                particle.scale = scale;
+                particle.color = colorParticles.Evaluate(Random.Range(0.0f, 1.0f));
+                particle.totalTime = totalTime;
             }
         }
 
-        boundary.Set(x1, z1, x2 - x1, z2 - z1);
-
-        float maxExtent = Mathf.Max(boundary.height, boundary.width);
-        mainCamera.orthographicSize = (maxExtent * 0.5f) * 1.05f;
-
-        float scale = maxExtent / 100.0f;
-        foreach (var particle in particles)
+        if (topologyData)
         {
-            particle.scale = scale;
-            particle.color = colorParticles.Evaluate(Random.Range(0.0f, 1.0f));
-            particle.totalTime = totalTime;
+            lines = topologyData.text.Split(splitFile, System.StringSplitOptions.RemoveEmptyEntries);
+
+            for (int idx = 0; idx < lines.Length; idx++)
+            {
+                var line = lines[idx];
+                var tokens = line.Split(splitLine, System.StringSplitOptions.None);
+
+                var particleId = int.Parse(tokens[0]);
+                //if (particleId != 0) continue;
+
+                for (int i = 1; i < tokens.Length; i++)
+                {
+                    particles[particleId].AddConnection(particles[int.Parse(tokens[i])]);
+                }
+            }
         }
 
         if ((functionData) && (functionPrefab))
@@ -101,10 +125,5 @@ public class PSORender : MonoBehaviour
             var visFunction = Instantiate(functionPrefab);
             visFunction.Parse(functionData, yScale);
         }
-    }
-
-    void Update()
-    {
-        
     }
 }

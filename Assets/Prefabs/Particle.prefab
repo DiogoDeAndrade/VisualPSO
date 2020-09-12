@@ -144,6 +144,9 @@ MonoBehaviour:
   scalableObjects:
   - {fileID: 311895396}
   totalTime: 200
+  manager: {fileID: 0}
+  connectionPrefab: {fileID: 9126855911738436100, guid: 666a0a6a96c32e4499532971ceecce7b,
+    type: 3}
 --- !u!96 &7105668638047419545
 TrailRenderer:
   serializedVersion: 2
