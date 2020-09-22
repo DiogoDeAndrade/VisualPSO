@@ -7,10 +7,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1172511026367645036, guid: a4cf417d8c35c4240a48ab9b997f035a,
+        type: 3}
+      propertyPath: terrainGrow
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7382126038257115148, guid: a4cf417d8c35c4240a48ab9b997f035a,
         type: 3}
       propertyPath: m_Name
-      value: PSOFunctionTerrain VariantYShader
+      value: PSOFunctionTerrainYShader
       objectReference: {fileID: 0}
     - target: {fileID: 7382126038257115150, guid: a4cf417d8c35c4240a48ab9b997f035a,
         type: 3}

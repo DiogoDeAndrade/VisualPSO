@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7382126038257115151}
   - component: {fileID: 7382126038257115150}
-  - component: {fileID: 7382126038257115149}
   - component: {fileID: 1172511026367645036}
   m_Layer: 0
   m_Name: PSOFunctionTerrain
@@ -66,17 +65,6 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
---- !u!154 &7382126038257115149
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7382126038257115148}
-  m_Material: {fileID: 0}
-  m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 6b3da613d18d0ae4fb94d62eecd4d416, type: 2}
-  m_EnableTreeColliders: 1
 --- !u!114 &1172511026367645036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,3 +87,7 @@ MonoBehaviour:
   density: 0
   minY: 0
   maxY: 0
+  manager: {fileID: 0}
+  terrainGrow: 0
+  growthSpeed: 1
+  terrain: {fileID: 7382126038257115150}

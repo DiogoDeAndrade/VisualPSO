@@ -13,6 +13,7 @@ public class PSORender : MonoBehaviour
     public Gradient     colorParticles;
     public bool         moveY = false;
     public float        yScale = 1.0f;
+    public bool         displayConnectivity = true;
     [Range(0.0f, 10.0f)]
     public float        playSpeed = 1.0f;
 
@@ -24,14 +25,21 @@ public class PSORender : MonoBehaviour
     public float        totalTime;
 
     List<PSOParticle> particles;
-    
+
+    [HideInInspector] public string functionText = "";
+    [HideInInspector] public string runText = "";
+    [HideInInspector] public string topologyText = "";
+
     void Start()
     {
         particles = new List<PSOParticle>();
 
         var splitFile = new string[] { "\r\n", "\r", "\n" };
         var splitLine = new string[] { ";" };
-        var lines = runData.text.Split(splitFile, System.StringSplitOptions.RemoveEmptyEntries);
+
+        string rd = (runData == null)?(runText):(runData.text);
+
+        var lines = rd.Split(splitFile, System.StringSplitOptions.RemoveEmptyEntries);
 
         float x1 = float.MaxValue;
         float z1 = float.MaxValue;
@@ -101,9 +109,10 @@ public class PSORender : MonoBehaviour
             }
         }
 
-        if (topologyData)
+        if (((topologyData) || (topologyText != "")) && (displayConnectivity))
         {
-            lines = topologyData.text.Split(splitFile, System.StringSplitOptions.RemoveEmptyEntries);
+            string td = (topologyData == null) ? (topologyText) : (topologyData.text);
+            lines = td.Split(splitFile, System.StringSplitOptions.RemoveEmptyEntries);
 
             for (int idx = 0; idx < lines.Length; idx++)
             {
@@ -120,10 +129,18 @@ public class PSORender : MonoBehaviour
             }
         }
 
-        if ((functionData) && (functionPrefab))
+        if (((functionData) || (functionText != "")) && (functionPrefab))
         {
+            string fd = (functionData == null) ? (functionText) : (functionData.text);
+
             var visFunction = Instantiate(functionPrefab);
-            visFunction.Parse(functionData, yScale);
+            visFunction.manager = this;
+            visFunction.Parse(fd, yScale);
         }
+    }
+
+    public List<PSOParticle> GetParticles()
+    {
+        return particles;
     }
 }

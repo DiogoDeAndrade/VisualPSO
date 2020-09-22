@@ -8,6 +8,7 @@ public class PSOFunction : MonoBehaviour
     public Rect       extents;
     public float      density;
     public float      minY, maxY;
+    public PSORender  manager;
 
     protected float[,] functionValues;
 
@@ -23,11 +24,11 @@ public class PSOFunction : MonoBehaviour
         
     }
 
-    public void Parse(TextAsset data, float yScale = 1.0f)
+    public void Parse(string data, float yScale = 1.0f)
     {
         var splitFile = new string[] { "\r\n", "\r", "\n" };
         var splitLine = new string[] { " " };
-        var lines = data.text.Split(splitFile, System.StringSplitOptions.RemoveEmptyEntries);
+        var lines = data.Split(splitFile, System.StringSplitOptions.RemoveEmptyEntries);
 
         nPoints = new Vector2Int(int.Parse(lines[0]), int.Parse(lines[1]));
         float x1 = float.Parse(lines[2]);
