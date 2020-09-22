@@ -22,6 +22,7 @@ public class PSORender : MonoBehaviour
 
     [Header("Runtime")]
     public Rect         boundary;
+    public Vector2      extentsY;
     public float        totalTime;
 
     List<PSOParticle> particles;
@@ -46,6 +47,8 @@ public class PSORender : MonoBehaviour
         float x2 = -float.MaxValue;
         float z2 = -float.MaxValue;
 
+        extentsY.Set(float.MaxValue, -float.MaxValue);
+
         totalTime = 0.0f;
         boundary.Set(0, 0, 0, 0);
 
@@ -66,6 +69,9 @@ public class PSORender : MonoBehaviour
                 x2 = Mathf.Max(x2, x);
                 z1 = Mathf.Min(z1, z);
                 z2 = Mathf.Max(z2, z);
+
+                extentsY.x = Mathf.Min(extentsY.x, y);
+                extentsY.y = Mathf.Max(extentsY.y, y);
 
                 totalTime = Mathf.Max(totalTime, iteration * timePerIteration);
 
@@ -98,7 +104,10 @@ public class PSORender : MonoBehaviour
             boundary.Set(x1, z1, x2 - x1, z2 - z1);
 
             float maxExtent = Mathf.Max(boundary.height, boundary.width);
-            mainCamera.orthographicSize = (maxExtent * 0.5f) * 1.05f;
+            if (mainCamera.orthographic)
+            {
+                mainCamera.orthographicSize = (maxExtent * 0.5f) * 1.05f;
+            }
 
             float scale = maxExtent / 100.0f;
             foreach (var particle in particles)
@@ -142,5 +151,50 @@ public class PSORender : MonoBehaviour
     public List<PSOParticle> GetParticles()
     {
         return particles;
+    }
+
+    public PSOParticle GetRandomParticle()
+    {
+        if (particles == null) return null;
+
+        return particles[Random.Range(0, particles.Count)];
+    }
+
+    public PSOParticle GetBestParticle()
+    {
+        if (particles == null) return null;
+
+        float       val = float.MaxValue;
+        PSOParticle particle = null;
+
+        foreach (var p in particles)
+        {
+            if (p.transform.position.y < val)
+            {
+                particle = p;
+                val = p.transform.position.y;
+            }
+        }
+
+        return particle;
+    }
+
+    public PSOParticle GetWorstParticle()
+    {
+        if (particles == null) return null;
+
+        float val = -float.MaxValue;
+        PSOParticle particle = null;
+
+        foreach (var p in particles)
+        {
+            if (p.transform.position.y > val)
+            {
+                particle = p;
+                val = p.transform.position.y;
+            }
+        }
+
+        return particle;
     }
 }

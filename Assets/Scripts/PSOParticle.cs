@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class PSOParticle : MonoBehaviour
 {
@@ -17,11 +18,19 @@ public class PSOParticle : MonoBehaviour
     public float        totalTime;
     public PSORender    manager;
     public LineRenderer connectionPrefab;
+    public float        offsetY = 0;
+    public bool         colorByGradient = false;
+    [ShowIf("colorByGradient"), ColorUsage(true, true)]
+    public Color        improvingColor = Color.green;
+    [ShowIf("colorByGradient"), ColorUsage(true, true)]
+    public Color        worseningColor = Color.red;
 
     List<UpdateItem>    positions;
     int                 index;
     float               elapsedTime = 0.0f;
     TrailRenderer       trailRenderer;
+    Material            material;
+    Color               currentColor;
 
     struct Connection
     {
@@ -57,8 +66,15 @@ public class PSOParticle : MonoBehaviour
             c = c * 5.0f;
             c.a = color.a;
 
-            mr.material = new Material(mr.material);
-            mr.material.SetColor("_Color", c);
+            material = new Material(mr.material);
+            material.SetColor("_Color", c);
+
+            mr.material = material;
+        }
+
+        if (colorByGradient)
+        {
+            SetColor(color);
         }
 
         UpdateConnections();
@@ -85,15 +101,57 @@ public class PSOParticle : MonoBehaviour
                 Vector3 p1 = positions[index].position;
                 Vector3 p2 = positions[index + 1].position;
 
+                Vector3 oldPos = transform.position;
+
                 float t = (elapsedTime - positions[index].time) / (positions[index + 1].time - positions[index].time);
-                transform.position = Vector3.Lerp(p1, p2, t);
+                transform.position = Vector3.Lerp(p1, p2, t) + Vector3.up * offsetY;
+
+                if (colorByGradient)
+                {
+                    Vector3 delta = transform.position - oldPos;
+
+                    Color targetColor;
+                    if (delta.y <= 0.1)
+                    {
+                        targetColor = improvingColor;
+                    }
+                    else
+                    {
+                        targetColor = worseningColor;
+                    }
+
+                    Color c = Color.Lerp(currentColor, targetColor, 0.15f);
+                    SetColor(c);
+                }
+            }
+            else
+            {
+                if (colorByGradient)
+                {
+                    var targetColor = improvingColor;
+                    Color c = Color.Lerp(currentColor, targetColor, 0.15f);
+                    SetColor(c);
+                }
+            }
+        }
+        else
+        {
+            if (colorByGradient)
+            {
+                var targetColor = improvingColor;
+                Color c = Color.Lerp(currentColor, targetColor, 0.15f);
+                SetColor(c);
             }
         }
     }
 
     public void AddUpdateAction(float time, float x, float y, float z)
     {
-        if (positions == null) positions = new List<UpdateItem>();
+        if (positions == null)
+        {
+            positions = new List<UpdateItem>();
+            transform.position = new Vector3(x, y, z) + Vector3.up * offsetY;
+    }
 
         positions.Add(new UpdateItem { time = time, position = new Vector3(x, y, z) });
     }
@@ -129,5 +187,32 @@ public class PSOParticle : MonoBehaviour
         {
             c.lineRenderer.SetPositions(new Vector3[2] { transform.position, c.particle.transform.position });
         }
+    }
+
+    void SetColor(Color c)
+    {
+        material.SetColor("_Color", c);
+        trailRenderer.startColor = c;
+        trailRenderer.endColor = new Color(c.r, c.g, c.a, 0.0f);
+
+        currentColor = c;
+    }
+
+    public Vector3 Predict(float time)
+    {
+        float t = elapsedTime + time;
+
+        for (int i = 1; i < positions.Count; i++)
+        {
+            if (positions[i].time >= t)
+            {
+                Vector3 p1 = positions[i - 1].position;
+                Vector3 p2 = positions[i].position;
+                float   tt = (t - positions[i - 1].time) / (positions[i].time - positions[i - 1].time);
+                return Vector3.Lerp(p1, p2, tt);
+            }
+        }
+
+        return Vector3.zero;
     }
 }

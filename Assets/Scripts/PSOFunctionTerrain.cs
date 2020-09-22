@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class PSOFunctionTerrain : PSOFunction
 {
     public bool     terrainGrow = false;
+    [ShowIf("terrainGrow")]
     public float    growthSpeed = 1.0f;
+    [ShowIf("terrainGrow")]
+    public bool     variableSpeed = false;
     public Terrain  terrain;
     public Terrain  ghostTerrain;
 
     float[,]    mask;
+    float[,]    growSpeedMask;
     float[,]    actualValues;
 
     override protected void OnDataProcessed()
@@ -38,19 +43,40 @@ public class PSOFunctionTerrain : PSOFunction
 
             UpdateMask(true);
             UpdateValues();
+
+            if (variableSpeed)
+            {
+                growSpeedMask = new float[nPoints.y, nPoints.x];
+            }
         }
     }
 
     void UpdateMask(bool forceStartup)
     {
         // Growth
-        for (int y = 0; y < nPoints.y; y++)
+        if (growSpeedMask != null)
         {
-            for (int x = 0; x < nPoints.x; x++)
+            for (int y = 0; y < nPoints.y; y++)
             {
-                if ((mask[y,x] > 0) && (mask[y, x] < 1.0f))
+                for (int x = 0; x < nPoints.x; x++)
                 {
-                    mask[y, x] = Mathf.Clamp01(mask[y, x] + Time.deltaTime * growthSpeed);
+                    if ((mask[y, x] > 0) && (mask[y, x] < 1.0f))
+                    {
+                        mask[y, x] = Mathf.Clamp01(mask[y, x] + Time.deltaTime * growSpeedMask[y,x] * growthSpeed);
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int y = 0; y < nPoints.y; y++)
+            {
+                for (int x = 0; x < nPoints.x; x++)
+                {
+                    if ((mask[y, x] > 0) && (mask[y, x] < 1.0f))
+                    {
+                        mask[y, x] = Mathf.Clamp01(mask[y, x] + Time.deltaTime * growthSpeed);
+                    }
                 }
             }
         }
@@ -66,7 +92,7 @@ public class PSOFunctionTerrain : PSOFunction
                     int px = Mathf.RoundToInt(nPoints.x * (pos.x - terrain.transform.position.x) / extents.width);
                     int pz = Mathf.RoundToInt(nPoints.y * (pos.z - terrain.transform.position.z) / extents.height);
 
-                    PaintMask(px, pz, 1.0f);
+                    PaintMask(px, pz, 5, 1.0f);
                 }
             }
             else
@@ -77,7 +103,7 @@ public class PSOFunctionTerrain : PSOFunction
                     int px = Mathf.RoundToInt(nPoints.x * (pos.x - terrain.transform.position.x) / extents.width);
                     int pz = Mathf.RoundToInt(nPoints.y * (pos.z - terrain.transform.position.z) / extents.height);
 
-                    PaintMask(px, pz, Time.deltaTime);
+                    PaintMask(px, pz, 5, Time.deltaTime);
                 }
             }
         }
@@ -91,6 +117,33 @@ public class PSOFunctionTerrain : PSOFunction
         if (y < nPoints.y - 1) mask[y + 1, x] = Mathf.Max(mask[y + 1, x], value * 0.5f);
         if (x > 0) mask[y, x - 1] = Mathf.Max(mask[y, x - 1], value * 0.5f);
         if (x < nPoints.x - 1) mask[y, x + 1] = Mathf.Max(mask[y, x + 1], value * 0.5f);
+    }
+
+    void PaintMask(int x, int y, int radius, float value)
+    {
+        mask[y, x] = Mathf.Max(mask[y, x], value);
+        if (growSpeedMask != null) growSpeedMask[y, x] = 1.0f;
+
+        for (int dy = -radius; dy <= radius; dy++)
+        {
+            int yy = y + dy;
+
+            if (yy < 0) continue;
+            if (yy >= nPoints.y) break;
+
+            for (int dx = -radius; dx <= radius; dx++)
+            {
+                int xx = x + dx;
+
+                if (xx < 0) continue;
+                if (xx >= nPoints.x) break;
+
+                float s = (radius - Mathf.Sqrt(dx * dx + dy * dy)) / radius;
+
+                mask[yy, xx] = Mathf.Max(mask[yy, xx], value * s);
+                if (growSpeedMask != null) growSpeedMask[yy, xx] = Mathf.Max(growSpeedMask[yy, xx], Mathf.Pow(s, 3.0f));
+            }
+        }
     }
 
     void UpdateValues()

@@ -147,6 +147,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   connectionPrefab: {fileID: 255153545987137447, guid: a7e862dd0d476cb48b3d44bac5df75cb,
     type: 3}
+  offsetY: 0.5
 --- !u!96 &7105668638047419545
 TrailRenderer:
   serializedVersion: 2

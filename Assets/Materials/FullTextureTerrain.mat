@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FullTextureTerrain
+  m_Shader: {fileID: -6465566751694194690, guid: 12e4301d3a405324c85b148c5a66313f,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_2BD3D6B5:
+        m_Texture: {fileID: 2800000, guid: 63031e227cf52ed498df0257a36bc3a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_C0A24202:
+        m_Texture: {fileID: 2800000, guid: 63031e227cf52ed498df0257a36bc3a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_51C2E57D: 1
+    - Vector1_715A9B16: 0.01
+    - Vector1_792000AF: 21.1
+    - Vector1_B03369FD: 200
+    - Vector1_DC2206D5: 35.01
+    - Vector1_DF406C9A: 10
+    - Vector1_F290F799: 2
+    m_Colors:
+    - Color_10158D77: {r: 0, g: 0, b: 0, a: 0}
+    - Color_54B68377: {r: 0.6117647, g: 1.5294118, b: 0.5411765, a: 1}
+    - Color_5EA55D80: {r: 0.4862745, g: 3.2784314, b: 3.1529412, a: 1}
+    - Color_B4000CFF: {r: 0.17254902, g: 0.627451, b: 0.14117648, a: 1}
+    - Vector2_5DD4B6D2: {r: -30, g: 30, b: 0, a: 0}
+    - Vector3_EFB26AFB: {r: 0.7, g: -0.7, b: 0, a: 0}
