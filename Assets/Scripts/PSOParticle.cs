@@ -31,6 +31,11 @@ public class PSOParticle : MonoBehaviour
     TrailRenderer       trailRenderer;
     Material            material;
     Color               currentColor;
+    Vector3             startPos;
+    float               timeForThisStep;
+    float               timerForThisStep;
+    Vector3             targetPosition;
+    Vector3             currentVelocity;
 
     struct Connection
     {
@@ -78,32 +83,44 @@ public class PSOParticle : MonoBehaviour
         }
 
         UpdateConnections();
+
+        startPos = transform.position;
+        targetPosition = startPos;
+        currentVelocity = Vector3.zero;
+        timeForThisStep = manager.timePerIteration;
+        timerForThisStep = 0;
     }
 
     void Update()
     {
         elapsedTime += Time.deltaTime * manager.playSpeed;
+        timerForThisStep += Time.deltaTime * manager.playSpeed;
 
         if (trailRenderer)
         {
             trailRenderer.time = (1.0f * scale) / manager.playSpeed;
         }
 
-        if ((index + 1) < positions.Count)
+        Vector3 oldPos = transform.position;
+
+        if (positions == null)
         {
-            if (elapsedTime >= positions[index + 1].time)
+            // Runtime PSO
+            Vector3 p1 = startPos;
+            Vector3 p2 = targetPosition;
+
+            if (Vector3.Distance(p1, p2) < 0.001f)
             {
-                index = index + 1;
+                if (colorByGradient)
+                {
+                    var targetColor = improvingColor;
+                    Color c = Color.Lerp(currentColor, targetColor, 0.15f);
+                    SetColor(c);
+                }
             }
-
-            if ((index + 1) < positions.Count)
+            else
             {
-                Vector3 p1 = positions[index].position;
-                Vector3 p2 = positions[index + 1].position;
-
-                Vector3 oldPos = transform.position;
-
-                float t = (elapsedTime - positions[index].time) / (positions[index + 1].time - positions[index].time);
+                float t = timerForThisStep / timeForThisStep;
                 transform.position = Vector3.Lerp(p1, p2, t) + Vector3.up * offsetY;
 
                 if (colorByGradient)
@@ -124,6 +141,52 @@ public class PSOParticle : MonoBehaviour
                     SetColor(c);
                 }
             }
+        }
+        else
+        {
+            if ((index + 1) < positions.Count)
+            {
+                if (elapsedTime >= positions[index + 1].time)
+                {
+                    index = index + 1;
+                }
+
+                if ((index + 1) < positions.Count)
+                {
+                    Vector3 p1 = positions[index].position;
+                    Vector3 p2 = positions[index + 1].position;
+
+                    float t = (elapsedTime - positions[index].time) / (positions[index + 1].time - positions[index].time);
+                    transform.position = Vector3.Lerp(p1, p2, t) + Vector3.up * offsetY;
+
+                    if (colorByGradient)
+                    {
+                        Vector3 delta = transform.position - oldPos;
+
+                        Color targetColor;
+                        if (delta.y <= 0.1)
+                        {
+                            targetColor = improvingColor;
+                        }
+                        else
+                        {
+                            targetColor = worseningColor;
+                        }
+
+                        Color c = Color.Lerp(currentColor, targetColor, 0.15f);
+                        SetColor(c);
+                    }
+                }
+                else
+                {
+                    if (colorByGradient)
+                    {
+                        var targetColor = improvingColor;
+                        Color c = Color.Lerp(currentColor, targetColor, 0.15f);
+                        SetColor(c);
+                    }
+                }
+            }
             else
             {
                 if (colorByGradient)
@@ -134,15 +197,8 @@ public class PSOParticle : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            if (colorByGradient)
-            {
-                var targetColor = improvingColor;
-                Color c = Color.Lerp(currentColor, targetColor, 0.15f);
-                SetColor(c);
-            }
-        }
+
+        currentVelocity = (transform.position - oldPos) / Time.deltaTime;
     }
 
     public void AddUpdateAction(float time, float x, float y, float z)
@@ -200,19 +256,34 @@ public class PSOParticle : MonoBehaviour
 
     public Vector3 Predict(float time)
     {
-        float t = elapsedTime + time;
-
-        for (int i = 1; i < positions.Count; i++)
+        if (positions == null)
         {
-            if (positions[i].time >= t)
+            return transform.position + currentVelocity * time;
+        }
+        else
+        {
+            float t = elapsedTime + time;
+
+            for (int i = 1; i < positions.Count; i++)
             {
-                Vector3 p1 = positions[i - 1].position;
-                Vector3 p2 = positions[i].position;
-                float   tt = (t - positions[i - 1].time) / (positions[i].time - positions[i - 1].time);
-                return Vector3.Lerp(p1, p2, tt);
+                if (positions[i].time >= t)
+                {
+                    Vector3 p1 = positions[i - 1].position;
+                    Vector3 p2 = positions[i].position;
+                    float tt = (t - positions[i - 1].time) / (positions[i].time - positions[i - 1].time);
+                    return Vector3.Lerp(p1, p2, tt);
+                }
             }
         }
 
         return Vector3.zero;
+    }
+
+    public void SetTarget(float x, float y, float z, float time)
+    {
+        startPos = transform.position - Vector3.up * offsetY;
+        targetPosition = new Vector3(x, y, z);
+        timeForThisStep = time;
+        timerForThisStep = 0.0f;
     }
 }

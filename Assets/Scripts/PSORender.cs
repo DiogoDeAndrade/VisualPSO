@@ -26,10 +26,19 @@ public class PSORender : MonoBehaviour
     public float        totalTime;
 
     List<PSOParticle> particles;
+    float             elapsedTime;
 
     [HideInInspector] public string functionText = "";
     [HideInInspector] public string runText = "";
     [HideInInspector] public string topologyText = "";
+
+    [HideInInspector] public OpenPSO.Lib.IFunction  function;
+    [HideInInspector] public int                    functionSamples;
+    [HideInInspector] public Vector2                functionSamplingInterval;
+
+    [HideInInspector] public OpenPSO.Lib.PSO        pso;
+
+    [HideInInspector] public Texture2D              texture;
 
     void Start()
     {
@@ -102,49 +111,104 @@ public class PSORender : MonoBehaviour
             }
 
             boundary.Set(x1, z1, x2 - x1, z2 - z1);
+        }
+        else if (pso != null)
+        {
+            // Runtime PSO
 
-            float maxExtent = Mathf.Max(boundary.height, boundary.width);
-            if (mainCamera.orthographic)
+            // Create particles
+            var particleData = pso.Topology.Particles;
+
+            int particleId = 1;
+            foreach (var p in particleData)
             {
-                mainCamera.orthographicSize = (maxExtent * 0.5f) * 1.05f;
+                float x = (float)p.Position[0];
+                float y = (float)p.Position[1];
+
+                var particle = Instantiate(particlePrefab);
+                particle.name = "Particle " + particleId;
+                particle.particleId = particleId;
+                particle.transform.position = new Vector3(x, (float)p.Fitness * yScale, y);
+                particle.manager = this;
+
+                particleId++;
+                particles.Add(particle);
             }
 
-            float scale = maxExtent / 100.0f;
-            foreach (var particle in particles)
-            {
-                particle.scale = scale;
-                particle.color = colorParticles.Evaluate(Random.Range(0.0f, 1.0f));
-                particle.totalTime = totalTime;
-            }
+            boundary.Set((float)pso.InitXMin, (float)pso.InitXMin, (float)(pso.InitXMax - pso.InitXMin), (float)(pso.InitXMax - pso.InitXMin));
         }
 
-        if (((topologyData) || (topologyText != "")) && (displayConnectivity))
+        float maxExtent = Mathf.Max(boundary.height, boundary.width);
+        if (mainCamera.orthographic)
         {
-            string td = (topologyData == null) ? (topologyText) : (topologyData.text);
-            lines = td.Split(splitFile, System.StringSplitOptions.RemoveEmptyEntries);
+            mainCamera.orthographicSize = (maxExtent * 0.5f) * 1.05f;
+        }
 
-            for (int idx = 0; idx < lines.Length; idx++)
+        float scale = maxExtent / 100.0f;
+        foreach (var particle in particles)
+        {
+            particle.scale = scale;
+            particle.color = colorParticles.Evaluate(Random.Range(0.0f, 1.0f));
+            particle.totalTime = totalTime;
+        }
+
+        if (displayConnectivity)
+        {
+            if ((topologyData) || (topologyText != ""))
             {
-                var line = lines[idx];
-                var tokens = line.Split(splitLine, System.StringSplitOptions.None);
+                string td = (topologyData == null) ? (topologyText) : (topologyData.text);
+                lines = td.Split(splitFile, System.StringSplitOptions.RemoveEmptyEntries);
 
-                var particleId = int.Parse(tokens[0]);
-                //if (particleId != 0) continue;
-
-                for (int i = 1; i < tokens.Length; i++)
+                for (int idx = 0; idx < lines.Length; idx++)
                 {
-                    particles[particleId].AddConnection(particles[int.Parse(tokens[i])]);
+                    var line = lines[idx];
+                    var tokens = line.Split(splitLine, System.StringSplitOptions.None);
+
+                    var particleId = int.Parse(tokens[0]);
+
+                    for (int i = 1; i < tokens.Length; i++)
+                    {
+                        particles[particleId].AddConnection(particles[int.Parse(tokens[i])]);
+                    }
                 }
             }
-        }
+            else if (pso != null)
+            {
+                var topology = pso.Topology;
+                var particleData = topology.Particles;
 
-        if (((functionData) || (functionText != "")) && (functionPrefab))
+                int particleIndex = 0;
+                foreach (var p in particleData)
+                {
+                    foreach (var pNeigh in topology.GetNeighbors(p))
+                    {
+                        int n = pNeigh.id;
+                        particles[particleIndex].AddConnection(particles[n]);
+                    }
+
+                    particleIndex++;
+                }
+            }
+        }      
+
+        if (functionPrefab)
         {
-            string fd = (functionData == null) ? (functionText) : (functionData.text);
-
             var visFunction = Instantiate(functionPrefab);
             visFunction.manager = this;
-            visFunction.Parse(fd, yScale);
+
+            if ((functionData) || (functionText != ""))
+            {
+                string fd = (functionData == null) ? (functionText) : (functionData.text);
+
+                visFunction.Parse(fd, yScale);
+            }
+            else if (function != null)
+            {
+                visFunction.Parse(function, functionSamples, functionSamplingInterval, yScale);
+                extentsY.x = visFunction.minY;
+                extentsY.y = visFunction.maxY;
+                visFunction.SetTexture(texture);
+            }
         }
     }
 
@@ -196,5 +260,39 @@ public class PSORender : MonoBehaviour
         }
 
         return particle;
+    }
+
+    private void Update()
+    {
+        if (pso != null)
+        {
+            elapsedTime += Time.deltaTime * playSpeed;
+
+            float timeToSimulate = 0.0f;
+            while (elapsedTime >= timePerIteration)
+            {
+                pso.UpdatePopData();
+                pso.UpdateParticles();
+                timeToSimulate += timePerIteration;
+                elapsedTime -= timePerIteration;
+            }
+
+            if (timeToSimulate > 0)
+            {
+                var particleData = pso.Topology.Particles;
+
+                int particleIndex = 0;
+                foreach (var p in particleData)
+                {
+                    float x = (float)p.Position[0];
+                    float y = (float)p.Fitness * yScale;
+                    float z = (float)p.Position[1];
+
+                    particles[particleIndex].SetTarget(x, y, z, timeToSimulate);
+
+                    particleIndex++;
+                }
+            }
+        }
     }
 }

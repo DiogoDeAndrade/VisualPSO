@@ -24,6 +24,11 @@ public class PSOFunction : MonoBehaviour
         
     }
 
+    virtual public void SetTexture(Texture2D texture)
+    {
+
+    }
+
     public void Parse(string data, float yScale = 1.0f)
     {
         var splitFile = new string[] { "\r\n", "\r", "\n" };
@@ -55,6 +60,44 @@ public class PSOFunction : MonoBehaviour
                 maxY = Mathf.Max(v, maxY);
             }
         }
+
+        OnDataProcessed();
+    }
+
+    public void Parse(OpenPSO.Lib.IFunction function, int nSamples, Vector2 samplingInterval, float yScale = 1.0f)
+    {
+        nPoints = new Vector2Int(nSamples, nSamples);
+        functionValues = new float[nSamples, nSamples];
+
+        float x1 = float.MaxValue;
+        float x2 = -float.MaxValue;
+        float y1 = float.MaxValue;
+        float y2 = -float.MaxValue;
+
+        minY = float.MaxValue;
+        maxY = -float.MaxValue;
+
+        for (int y = 0; y < nSamples; y++)
+        {
+            double py = samplingInterval.x + (samplingInterval.y - samplingInterval.x) * ((double)y / nSamples);
+
+            y1 = Mathf.Min((float)py, y1);
+            y2 = Mathf.Max((float)py, y2);
+
+            for (int x = 0; x < nSamples; x++)
+            {
+                double px = samplingInterval.x + (samplingInterval.y - samplingInterval.x) * ((double)x / nSamples);
+
+                float v = (float)function.Evaluate(new List<double> { px, py }) * yScale;
+                functionValues[y, x] = v;
+                minY = Mathf.Min(v, minY);
+                maxY = Mathf.Max(v, maxY);
+                x1 = Mathf.Min((float)px, x1);
+                x2 = Mathf.Max((float)px, x2);
+            }
+        }
+
+        extents = new Rect(x1, y1, x2 - x1, y2 - y1);
 
         OnDataProcessed();
     }

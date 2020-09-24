@@ -17,6 +17,14 @@ public class PSOFunctionTerrain : PSOFunction
     float[,]    growSpeedMask;
     float[,]    actualValues;
 
+    override public void SetTexture(Texture2D texture)
+    {
+        if (terrain)
+        {
+            terrain.materialTemplate.SetTexture("Image", texture);
+        }
+    }
+
     override protected void OnDataProcessed()
     {
         NormalizeData();
