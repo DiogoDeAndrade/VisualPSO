@@ -33,13 +33,15 @@ public class PSOConfig : MonoBehaviour
     [ShowIf("IsPerlinLandscapeAndPSONET")]
     public int                  perlinOctaves = 8;
     [ShowIf("IsPerlinLandscapeAndPSONET")]
-    public int                  perlinAmplitude = 20;    
+    public float                perlinAmplitude = 20;    
     [ShowIf("IsPerlinLandscapeAndPSONET")]
     public Vector2              perlinFrequency = new Vector2(0.02f, 0.02f);
     [ShowIf("IsPerlinLandscapeAndPSONET")]
     public float                perlinAmplitudePerOctave = 0.5f;
     [ShowIf("IsPerlinLandscapeAndPSONET")]
     public float                perlinFrequencyPerOctave = 2.0f;
+    [ShowIf("IsPerlinLandscapeAndPSONET")]
+    public Vector2              perlinOffset = Vector2.zero;
     [ShowIf("IsImageAndPSONET")]
     public Texture2D            image;
     [ShowIf("IsImageAndPSONET")]
@@ -142,7 +144,8 @@ public class PSOConfig : MonoBehaviour
                     throw new NotImplementedException();
                 case Problem.PerlinLandscape:
                     ifunction = new OpenPSO.Functions.PerlinLandscape(perlinOctaves, perlinAmplitude, perlinAmplitudePerOctave,
-                                                                      perlinFrequency.x, perlinFrequency.y, perlinFrequencyPerOctave);
+                                                                      perlinFrequency.x, perlinFrequency.y, perlinFrequencyPerOctave,
+                                                                      perlinOffset.x, perlinOffset.y);
                     break;
                 case Problem.ImageValue:
                     if (!image.isReadable)

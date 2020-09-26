@@ -16,13 +16,16 @@ public class PSOFunctionTerrain : PSOFunction
     float[,]    mask;
     float[,]    growSpeedMask;
     float[,]    actualValues;
+    Material    terrainMaterial;
 
-    override public void SetTexture(Texture2D texture)
+    override public void SetMaterial(Material material, Texture2D texture)
     {
-        if (terrain)
+        if (material)
         {
-            terrain.materialTemplate.SetTexture("Image", texture);
+            terrain.materialTemplate = terrainMaterial = new Material(material);
         }
+
+        terrainMaterial.SetTexture("Image", texture);
     }
 
     override protected void OnDataProcessed()
@@ -33,6 +36,8 @@ public class PSOFunctionTerrain : PSOFunction
         terrain.terrainData.SetHeights(0, 0, functionValues);
 
         transform.position = new Vector3(extents.x, minY, extents.y);
+
+        terrain.materialTemplate = terrainMaterial = new Material(terrain.materialTemplate);
 
         if (ghostTerrain)
         {

@@ -24,7 +24,7 @@ public class PSOFunction : MonoBehaviour
         
     }
 
-    virtual public void SetTexture(Texture2D texture)
+    virtual public void SetMaterial(Material material, Texture2D texture)
     {
 
     }

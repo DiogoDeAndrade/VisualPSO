@@ -12,9 +12,12 @@ namespace OpenPSO.Functions
         private double frequencyY = 0.02;
         private double amplitudePerOctave = 0.5;
         private double frequencyPerOctave = 2.0;
+        private double offsetX = 0;
+        private double offsetY = 0;
 
-        public PerlinLandscape(int octaves = 8, int amplitude = 20, double amplitudePerOctave = 0.5,
-                               double frequencyX = 0.02, double frequencyY = 0.02, double frequencyPerOctave = 2)
+        public PerlinLandscape(int octaves = 8, double amplitude = 20, double amplitudePerOctave = 0.5,
+                               double frequencyX = 0.02, double frequencyY = 0.02, double frequencyPerOctave = 2,
+                               double offsetX = 0, double offsetY = 0)
         {
             this.octaves = octaves;
             this.amplitude = amplitude;
@@ -22,6 +25,8 @@ namespace OpenPSO.Functions
             this.frequencyX = frequencyX;
             this.frequencyY = frequencyY;
             this.frequencyPerOctave = frequencyPerOctave;
+            this.offsetX = offsetX;
+            this.offsetY = offsetY;
         }
 
         public double Evaluate(IList<double> position)
@@ -43,7 +48,7 @@ namespace OpenPSO.Functions
 
             for (int i = 0; i < octaves; i++)
             {
-                fitness += amp * Perlin2d.Evaluate(x * freqX, y * freqY);
+                fitness += amp * Perlin2d.Evaluate(x * freqX + offsetX, y * freqY + offsetY);
                 amp *= amplitudePerOctave;
                 freqX *= frequencyPerOctave;
                 freqY *= frequencyPerOctave;

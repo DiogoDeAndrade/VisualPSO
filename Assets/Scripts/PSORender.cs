@@ -10,6 +10,7 @@ public class PSORender : MonoBehaviour
     public float        timePerIteration = 1.0f;
     public PSOParticle  particlePrefab;
     public PSOFunction  functionPrefab;
+    public Material     materialOverride;
     public Gradient     colorParticles;
     public bool         moveY = false;
     public float        yScale = 1.0f;
@@ -207,8 +208,9 @@ public class PSORender : MonoBehaviour
                 visFunction.Parse(function, functionSamples, functionSamplingInterval, yScale);
                 extentsY.x = visFunction.minY;
                 extentsY.y = visFunction.maxY;
-                visFunction.SetTexture(texture);
             }
+
+            visFunction.SetMaterial(materialOverride, texture);
         }
     }
 
