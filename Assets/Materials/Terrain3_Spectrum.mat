@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Terrain5
-  m_Shader: {fileID: -6465566751694194690, guid: 4c9f3485f72ffc04bac37a2e965e3e4c,
+  m_Name: Terrain3_Spectrum
+  m_Shader: {fileID: -6465566751694194690, guid: 5df1ab58def9a1b43a1874055f2d5453,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -19,16 +19,9 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - Image:
-        m_Texture: {fileID: 2800000, guid: be5e4a3ac69462d40b161b5e71bcea28, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_B441F1D5:
-        m_Texture: {fileID: 2800000, guid: 63031e227cf52ed498df0257a36bc3a1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Floats:
+    - Boolean_A3A19A1: 1
     - DivisionWidth: 0.08
     - Vector1_51C2E57D: 2
     - Vector1_91BD988E: 2
@@ -37,7 +30,7 @@ Material:
     - Vector1_DF406C9A: 8
     - Vector1_F290F799: 2.1
     m_Colors:
-    - Color_54B68377: {r: 4, g: 4, b: 4, a: 1}
-    - Color_B4000CFF: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-    - LimitsY: {r: 0, g: 20, b: 0, a: 0}
-    - Vector2_5DD4B6D2: {r: 0, g: 20, b: 0, a: 0}
+    - Color_54B68377: {r: 4.2478786, g: 0.07079798, b: 0, a: 1}
+    - Color_B4000CFF: {r: 3.5648696, g: 0, b: 0.05941359, a: 1}
+    - LimitsY: {r: 13.04, g: 36.21804, b: 0, a: 0}
+    - Vector2_5DD4B6D2: {r: 10, g: 60, b: 0, a: 0}

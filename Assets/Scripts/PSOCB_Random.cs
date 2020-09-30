@@ -45,7 +45,7 @@ public class PSOCB_Random : PSOCameraBehaviour
 
         PSORender psoRender = FindObjectOfType<PSORender>();
 
-        startLookPos = new Vector3(Random.Range(-1, 1), Random.Range(0.5f, 1.5f), Random.Range(-1, 1)).normalized * outerRadius;
+        startLookPos = new Vector3(Random.Range(-1, 1), Random.Range(0.5f, 1.5f), Random.Range(-1, 1)).normalized * outerRadius * scale;
 
         startLookPos.y = Mathf.Max(startLookPos.y, psoRender.extentsY.y);
 
@@ -54,7 +54,7 @@ public class PSOCB_Random : PSOCameraBehaviour
         switch (targetParticle)
         {
             case TargetParticle.None:
-                targetPos = Random.onUnitSphere * innerRadius;
+                targetPos = Random.onUnitSphere * innerRadius * scale;
                 if (targetPos.y < 0) targetPos.y = Mathf.Abs(targetPos.y);
                 break;
             case TargetParticle.Best:
@@ -99,7 +99,7 @@ public class PSOCB_Random : PSOCameraBehaviour
 
         if (zoomIn)
         {
-            transform.position = startLookPos + transform.forward * zoomInSpeed * elapsedTime;
+            transform.position = startLookPos + transform.forward * zoomInSpeed * scale * elapsedTime;
         }
 
         if (particleTransform)

@@ -26,6 +26,19 @@ public class PSOFunctionTerrain : PSOFunction
         }
 
         terrainMaterial.SetTexture("Image", texture);
+        if (texture == null)
+        {
+            terrainMaterial.SetVector("LimitsY", new Vector4(minY + Mathf.Abs(minY), maxY, 0, 0));
+        }
+        else
+        {
+            terrainMaterial.SetVector("LimitsY", new Vector4(0, 20, 0, 0));
+        }
+    }
+
+    override public void SetFoF(bool fof)
+    {
+        terrainGrow = fof;
     }
 
     override protected void OnDataProcessed()

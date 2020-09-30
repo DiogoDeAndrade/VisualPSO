@@ -121,7 +121,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &42283128
+--- !u!1 &70305501
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,40 +129,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 42283130}
-  - component: {fileID: 42283129}
+  - component: {fileID: 70305504}
+  - component: {fileID: 70305503}
+  - component: {fileID: 70305502}
   m_Layer: 0
-  m_Name: Ackley (Domain too large)
+  m_Name: Experiment10-Landscape (connectivity)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &42283129
+--- !u!114 &70305502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42283128}
+  m_GameObject: {fileID: 70305501}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: a7d4a05669ad3f4458fbf5e9272f8926, type: 3}
-  functionData: {fileID: 4900000, guid: f486f68671907ce45a6e7af79fe41bbd, type: 3}
-  topologyData: {fileID: 0}
+  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
+  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
+  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
   timePerIteration: 0.1
-  particlePrefab: {fileID: 4792472546745710705, guid: 27334f2ce55b1184192343ae988c9f76,
+  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1172511026367645036, guid: a4cf417d8c35c4240a48ab9b997f035a,
+  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
     type: 3}
-  materialOverride: {fileID: 0}
+  materialOverride: {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
   colorParticles:
     serializedVersion: 2
-    key0: {r: 0.4185208, g: 0.8962264, b: 0.45685545, a: 1}
-    key1: {r: 0, g: 0.8148837, b: 1, a: 1}
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
     key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
     key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
     key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
@@ -189,7 +190,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: 1
+  particleScale: 1
   displayConnectivity: 1
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -207,21 +210,70 @@ MonoBehaviour:
   functionSamples: 0
   functionSamplingInterval: {x: 0, y: 0}
   texture: {fileID: 0}
---- !u!4 &42283130
+--- !u!114 &70305503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70305501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useOpenPSONET: 1
+  functionSamplingSize: 257
+  seed: 12345
+  maxIterations: 10000
+  maxEvaluations: 980000
+  algorithm: 1
+  problem: 56
+  perlinOctaves: 8
+  perlinAmplitude: 20
+  perlinFrequency: {x: 0.04, y: 0.04}
+  perlinAmplitudePerOctave: 0.5
+  perlinFrequencyPerOctave: 2
+  perlinOffset: {x: 0, y: 0}
+  image: {fileID: 2800000, guid: 4f81b20b8c9853241aae9b4d8397de12, type: 3}
+  invertImage: 1
+  sampleRadius: 5
+  useStimulus: 1
+  xMax: 100
+  vMax: 5
+  chi: 1
+  omega: 0.5
+  c1: 1
+  c2: 1
+  weightStrategy: 0
+  cStrategy: 0
+  assymetricInitialization: 1
+  initialX: {x: -100, y: 100}
+  numExtraRandomNeighbours: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
+  watershedStrategy: 0
+  topology: 3
+  dimension: {x: 7, y: 7}
+  neighborhoodType: 1
+  nParticles: 25
+  radius: 1
+  tgf_filename: graphs/ring_n10r1.tgf
+--- !u!4 &70305504
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42283128}
+  m_GameObject: {fileID: 70305501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &122719318
+--- !u!1 &253518263
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,40 +281,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 122719320}
-  - component: {fileID: 122719319}
+  - component: {fileID: 253518266}
+  - component: {fileID: 253518265}
+  - component: {fileID: 253518264}
   m_Layer: 0
-  m_Name: Griewank
+  m_Name: Experiment7-Landscape (connectivity)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &122719319
+--- !u!114 &253518264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122719318}
+  m_GameObject: {fileID: 253518263}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: dfdee40ad4e18d84f92ede264596f994, type: 3}
-  functionData: {fileID: 4900000, guid: ed061c68c9ff8b14c97f23e590b97204, type: 3}
-  topologyData: {fileID: 0}
+  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
+  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
+  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
   timePerIteration: 0.1
-  particlePrefab: {fileID: 4792472546745710705, guid: 27334f2ce55b1184192343ae988c9f76,
+  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1172511026367645036, guid: a4cf417d8c35c4240a48ab9b997f035a,
+  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
     type: 3}
-  materialOverride: {fileID: 0}
+  materialOverride: {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
   colorParticles:
     serializedVersion: 2
-    key0: {r: 0.4185208, g: 0.8962264, b: 0.45685545, a: 1}
-    key1: {r: 0, g: 0.8148837, b: 1, a: 1}
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
     key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
     key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
     key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
@@ -289,7 +342,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: 1
+  particleScale: 1
   displayConnectivity: 1
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -307,19 +362,68 @@ MonoBehaviour:
   functionSamples: 0
   functionSamplingInterval: {x: 0, y: 0}
   texture: {fileID: 0}
---- !u!4 &122719320
+--- !u!114 &253518265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253518263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useOpenPSONET: 1
+  functionSamplingSize: 257
+  seed: 12345
+  maxIterations: 10000
+  maxEvaluations: 980000
+  algorithm: 1
+  problem: 56
+  perlinOctaves: 8
+  perlinAmplitude: 20
+  perlinFrequency: {x: 0.04, y: 0.04}
+  perlinAmplitudePerOctave: 0.5
+  perlinFrequencyPerOctave: 2
+  perlinOffset: {x: 0, y: 0}
+  image: {fileID: 2800000, guid: 4f81b20b8c9853241aae9b4d8397de12, type: 3}
+  invertImage: 1
+  sampleRadius: 5
+  useStimulus: 1
+  xMax: 100
+  vMax: 5
+  chi: 1
+  omega: 0.5
+  c1: 1
+  c2: 1
+  weightStrategy: 0
+  cStrategy: 0
+  assymetricInitialization: 1
+  initialX: {x: -100, y: 100}
+  numExtraRandomNeighbours: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
+  watershedStrategy: 0
+  topology: 1
+  dimension: {x: 7, y: 7}
+  neighborhoodType: 1
+  nParticles: 10
+  radius: 1
+  tgf_filename: graphs/ring_n10r1.tgf
+--- !u!4 &253518266
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122719318}
+  m_GameObject: {fileID: 253518263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &284856961
 GameObject:
@@ -390,7 +494,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: 1
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -426,7 +532,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 0
   problem: 56
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -435,19 +540,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 123, y: 345}
   image: {fileID: 0}
-  negateImage: 0
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -467,7 +575,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &373354298
 GameObject:
@@ -538,7 +646,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: -20
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -574,7 +684,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 58
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -583,19 +692,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 2800000, guid: 9003f56ad2f463b41bc986563c1d70e5, type: 3}
-  negateImage: 1
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -615,9 +727,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &485585169
+--- !u!1 &430584850
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -625,40 +737,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 485585171}
-  - component: {fileID: 485585170}
+  - component: {fileID: 430584853}
+  - component: {fileID: 430584852}
+  - component: {fileID: 430584851}
   m_Layer: 0
-  m_Name: PSORender4
+  m_Name: Experiment6-daVinci
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &485585170
+--- !u!114 &430584851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485585169}
+  m_GameObject: {fileID: 430584850}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: 36d2559eccefb5e4b9368bbfc2a217fb, type: 3}
-  functionData: {fileID: 4900000, guid: 12a75209166c79641b3330a7651400a8, type: 3}
-  topologyData: {fileID: 0}
+  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
+  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
+  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
   timePerIteration: 0.1
-  particlePrefab: {fileID: 4792472546745710705, guid: 27334f2ce55b1184192343ae988c9f76,
+  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1172511026367645036, guid: a4cf417d8c35c4240a48ab9b997f035a,
+  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
     type: 3}
-  materialOverride: {fileID: 0}
+  materialOverride: {fileID: 2100000, guid: 57e83d249ce3d6742a6c970d711b56a8, type: 2}
   colorParticles:
     serializedVersion: 2
-    key0: {r: 0.4185208, g: 0.8962264, b: 0.45685545, a: 1}
-    key1: {r: 0, g: 0.8148837, b: 1, a: 1}
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
     key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
     key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
     key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
@@ -685,8 +798,10 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
-  yScale: 1
-  displayConnectivity: 1
+  fogOfFunction: 0
+  yScale: 20
+  particleScale: 1
+  displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
@@ -703,19 +818,68 @@ MonoBehaviour:
   functionSamples: 0
   functionSamplingInterval: {x: 0, y: 0}
   texture: {fileID: 0}
---- !u!4 &485585171
+--- !u!114 &430584852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430584850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useOpenPSONET: 1
+  functionSamplingSize: 257
+  seed: 12345
+  maxIterations: 10000
+  maxEvaluations: 980000
+  algorithm: 1
+  problem: 59
+  perlinOctaves: 8
+  perlinAmplitude: 20
+  perlinFrequency: {x: 0.04, y: 0.04}
+  perlinAmplitudePerOctave: 0.5
+  perlinFrequencyPerOctave: 2
+  perlinOffset: {x: 0, y: 0}
+  image: {fileID: 2800000, guid: 4f81b20b8c9853241aae9b4d8397de12, type: 3}
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 1
+  xMax: 100
+  vMax: 1
+  chi: 1
+  omega: 0.5
+  c1: 1
+  c2: 1
+  weightStrategy: 0
+  cStrategy: 0
+  assymetricInitialization: 1
+  initialX: {x: -100, y: 100}
+  numExtraRandomNeighbours: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
+  watershedStrategy: 0
+  topology: 1
+  dimension: {x: 7, y: 7}
+  neighborhoodType: 1
+  nParticles: 10
+  radius: 1
+  tgf_filename: graphs/ring_n10r1.tgf
+--- !u!4 &430584853
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485585169}
+  m_GameObject: {fileID: 430584850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &504050308
 GameObject:
@@ -786,7 +950,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: 1
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -822,7 +988,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 0
   problem: 56
   perlinOctaves: 6
   perlinAmplitude: 15
@@ -831,19 +996,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 100, y: 100}
   image: {fileID: 0}
-  negateImage: 0
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -863,7 +1031,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &532770253
 GameObject:
@@ -934,7 +1102,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: 1
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -970,7 +1140,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 56
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -979,19 +1148,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 0}
-  negateImage: 0
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -1006,106 +1178,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532770253}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 31
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &593063279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 593063281}
-  - component: {fileID: 593063280}
-  m_Layer: 0
-  m_Name: Rotated Griezwank
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &593063280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593063279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: e7b5a772740976a46aaedd2a03473c85, type: 3}
-  functionData: {fileID: 4900000, guid: 82f3065b8b66b3c49a737568f3b8ba37, type: 3}
-  topologyData: {fileID: 0}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 4792472546745710705, guid: 27334f2ce55b1184192343ae988c9f76,
-    type: 3}
-  functionPrefab: {fileID: 1172511026367645036, guid: a4cf417d8c35c4240a48ab9b997f035a,
-    type: 3}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 0.4185208, g: 0.8962264, b: 0.45685545, a: 1}
-    key1: {r: 0, g: 0.8148837, b: 1, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 1
-  yScale: 1
-  displayConnectivity: 1
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!4 &593063281
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593063279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1182,7 +1254,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: 1
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -1218,8 +1292,7 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
-  problem: 56
+  problem: 2
   perlinOctaves: 8
   perlinAmplitude: 20
   perlinFrequency: {x: 0.04, y: 0.04}
@@ -1227,19 +1300,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 0}
-  negateImage: 0
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -1259,7 +1335,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653260035
 GameObject:
@@ -1378,7 +1454,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: -20
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -1414,7 +1492,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 57
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -1423,19 +1500,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 2800000, guid: 63031e227cf52ed498df0257a36bc3a1, type: 3}
-  negateImage: 0
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -1455,207 +1535,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &703784285
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 703784287}
-  - component: {fileID: 703784286}
-  m_Layer: 0
-  m_Name: Landscape
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &703784286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703784285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
-  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
-  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
-    type: 3}
-  functionPrefab: {fileID: 7344741328182010108, guid: 20b6c475df4c09b4ab622384b7348c00,
-    type: 3}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 1
-  yScale: 1
-  displayConnectivity: 0
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!4 &703784287
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703784285}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &744878066
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 744878068}
-  - component: {fileID: 744878067}
-  m_Layer: 0
-  m_Name: Schaffer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &744878067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744878066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: faa138d741668d54db2069b91f7cdbdf, type: 3}
-  functionData: {fileID: 4900000, guid: 5c0cee95824cdc5498e5462f02c31a84, type: 3}
-  topologyData: {fileID: 0}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 4792472546745710705, guid: 27334f2ce55b1184192343ae988c9f76,
-    type: 3}
-  functionPrefab: {fileID: 1172511026367645036, guid: a4cf417d8c35c4240a48ab9b997f035a,
-    type: 3}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 0.4185208, g: 0.8962264, b: 0.45685545, a: 1}
-    key1: {r: 0, g: 0.8148837, b: 1, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 1
-  yScale: 2
-  displayConnectivity: 1
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!4 &744878068
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744878066}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &800066826
 GameObject:
@@ -1726,7 +1606,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: -20
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -1762,7 +1644,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 56
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -1771,19 +1652,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 2800000, guid: be5e4a3ac69462d40b161b5e71bcea28, type: 3}
-  negateImage: 1
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -1803,9 +1687,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &803285895
+--- !u!1 &802191241
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1813,40 +1697,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 803285897}
-  - component: {fileID: 803285896}
+  - component: {fileID: 802191244}
+  - component: {fileID: 802191243}
+  - component: {fileID: 802191242}
   m_Layer: 0
-  m_Name: HyperEllipsoid
+  m_Name: Experiment2-Landscape (8 octaves)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &803285896
+--- !u!114 &802191242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803285895}
+  m_GameObject: {fileID: 802191241}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: de5b9746ef417614f8901a177d712ae0, type: 3}
-  functionData: {fileID: 4900000, guid: a239483cc50ec624e9791574e994cdeb, type: 3}
-  topologyData: {fileID: 0}
+  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
+  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
+  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
   timePerIteration: 0.1
-  particlePrefab: {fileID: 4792472546745710705, guid: 27334f2ce55b1184192343ae988c9f76,
+  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1172511026367645036, guid: a4cf417d8c35c4240a48ab9b997f035a,
+  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
     type: 3}
-  materialOverride: {fileID: 0}
+  materialOverride: {fileID: 2100000, guid: eca6802b31ba1c3438fae543ce489885, type: 2}
   colorParticles:
     serializedVersion: 2
-    key0: {r: 0.4185208, g: 0.8962264, b: 0.45685545, a: 1}
-    key1: {r: 0, g: 0.8148837, b: 1, a: 1}
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
     key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
     key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
     key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
@@ -1873,8 +1758,10 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
-  yScale: 0.025
-  displayConnectivity: 1
+  fogOfFunction: 1
+  yScale: 1
+  particleScale: 1
+  displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
@@ -1891,19 +1778,220 @@ MonoBehaviour:
   functionSamples: 0
   functionSamplingInterval: {x: 0, y: 0}
   texture: {fileID: 0}
---- !u!4 &803285897
+--- !u!114 &802191243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802191241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useOpenPSONET: 1
+  functionSamplingSize: 257
+  seed: 12345
+  maxIterations: 10000
+  maxEvaluations: 980000
+  algorithm: 1
+  problem: 56
+  perlinOctaves: 8
+  perlinAmplitude: 20
+  perlinFrequency: {x: 0.04, y: 0.04}
+  perlinAmplitudePerOctave: 0.5
+  perlinFrequencyPerOctave: 2
+  perlinOffset: {x: 0, y: 0}
+  image: {fileID: 0}
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
+  xMax: 100
+  vMax: 0.5
+  chi: 1
+  omega: 0.5
+  c1: 1
+  c2: 1
+  weightStrategy: 0
+  cStrategy: 0
+  assymetricInitialization: 1
+  initialX: {x: -100, y: 100}
+  numExtraRandomNeighbours: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
+  watershedStrategy: 0
+  topology: 1
+  dimension: {x: 7, y: 7}
+  neighborhoodType: 1
+  nParticles: 10
+  radius: 1
+  tgf_filename: graphs/ring_n10r1.tgf
+--- !u!4 &802191244
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803285895}
+  m_GameObject: {fileID: 802191241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &820346906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 820346909}
+  - component: {fileID: 820346908}
+  - component: {fileID: 820346907}
+  m_Layer: 0
+  m_Name: Experiment4-Landscape (4 octaves)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &820346907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820346906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
+  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
+  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
+  timePerIteration: 0.1
+  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
+    type: 3}
+  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+    type: 3}
+  materialOverride: {fileID: 2100000, guid: 3fbfbd7d52eff8349976b79a9f8b8a4b, type: 2}
+  colorParticles:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
+    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
+    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
+    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
+    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 23982
+    ctime3: 34192
+    ctime4: 43975
+    ctime5: 52001
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  moveY: 1
+  fogOfFunction: 1
+  yScale: 1
+  particleScale: 1
+  displayConnectivity: 0
+  playSpeed: 1
+  mainCamera: {fileID: 1687258584}
+  boundary:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  extentsY: {x: 0, y: 0}
+  totalTime: 0
+  functionText: 
+  runText: 
+  topologyText: 
+  functionSamples: 0
+  functionSamplingInterval: {x: 0, y: 0}
+  texture: {fileID: 0}
+--- !u!114 &820346908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820346906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useOpenPSONET: 1
+  functionSamplingSize: 257
+  seed: 12345
+  maxIterations: 10000
+  maxEvaluations: 980000
+  algorithm: 1
+  problem: 56
+  perlinOctaves: 4
+  perlinAmplitude: 20
+  perlinFrequency: {x: 0.04, y: 0.04}
+  perlinAmplitudePerOctave: 0.5
+  perlinFrequencyPerOctave: 2
+  perlinOffset: {x: 0, y: 0}
+  image: {fileID: 0}
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
+  xMax: 100
+  vMax: 10
+  chi: 1
+  omega: 0.5
+  c1: 2
+  c2: 0.5
+  weightStrategy: 0
+  cStrategy: 0
+  assymetricInitialization: 1
+  initialX: {x: -100, y: 100}
+  numExtraRandomNeighbours: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
+  watershedStrategy: 0
+  topology: 1
+  dimension: {x: 5, y: 5}
+  neighborhoodType: 1
+  nParticles: 10
+  radius: 1
+  tgf_filename: graphs/ring_n10r1.tgf
+--- !u!4 &820346909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820346906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892786183
 GameObject:
@@ -1916,7 +2004,8 @@ GameObject:
   - component: {fileID: 892786185}
   - component: {fileID: 892786184}
   m_Layer: 0
-  m_Name: CommandLineProcessor
+  m_Name: CommandLineProcessor - Disable this or else a random visualization will
+    spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1949,6 +2038,17 @@ MonoBehaviour:
   - {fileID: 1960928940}
   - {fileID: 2110904779}
   - {fileID: 1180581795}
+  experiments:
+  - {fileID: 1159119784}
+  - {fileID: 802191241}
+  - {fileID: 2111576076}
+  - {fileID: 820346906}
+  - {fileID: 1919710287}
+  - {fileID: 430584850}
+  - {fileID: 253518263}
+  - {fileID: 1868172937}
+  - {fileID: 1861193421}
+  - {fileID: 70305501}
   randomPreset: {fileID: 800066828}
   customPreset: {fileID: 607889175}
   images:
@@ -1960,7 +2060,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: cc7981c99f9926440824a105b1b7fc11, type: 2}
   - {fileID: 2100000, guid: 3fbfbd7d52eff8349976b79a9f8b8a4b, type: 2}
   - {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
-  - {fileID: 2100000, guid: 57e83d249ce3d6742a6c970d711b56a8, type: 2}
+  - {fileID: 2100000, guid: eca6802b31ba1c3438fae543ce489885, type: 2}
   - {fileID: 2100000, guid: 57e83d249ce3d6742a6c970d711b56a8, type: 2}
   - {fileID: 2100000, guid: 57e83d249ce3d6742a6c970d711b56a8, type: 2}
   - {fileID: 2100000, guid: 57e83d249ce3d6742a6c970d711b56a8, type: 2}
@@ -1971,7 +2071,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3fbfbd7d52eff8349976b79a9f8b8a4b, type: 2}
   - {fileID: 2100000, guid: cc7981c99f9926440824a105b1b7fc11, type: 2}
   - {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
-  - {fileID: 2100000, guid: 3fbfbd7d52eff8349976b79a9f8b8a4b, type: 2}
+  - {fileID: 2100000, guid: eca6802b31ba1c3438fae543ce489885, type: 2}
 --- !u!4 &892786185
 Transform:
   m_ObjectHideFlags: 0
@@ -1984,7 +2084,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &952182359
 GameObject:
@@ -2094,14 +2194,14 @@ RectTransform:
   - {fileID: 1525348933}
   - {fileID: 1905803256}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1026355014
+--- !u!1 &1159119784
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2109,22 +2209,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1026355016}
-  - component: {fileID: 1026355015}
+  - component: {fileID: 1159119787}
+  - component: {fileID: 1159119786}
+  - component: {fileID: 1159119785}
   m_Layer: 0
-  m_Name: LandscapeDynamic
+  m_Name: Experiment1-Rastrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1026355015
+--- !u!114 &1159119785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026355014}
+  m_GameObject: {fileID: 1159119784}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
@@ -2136,9 +2237,9 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 752376622124660966, guid: 9814e2f62a9b8cd4ab8a72a9c2339e7e,
+  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
     type: 3}
-  materialOverride: {fileID: 0}
+  materialOverride: {fileID: 2100000, guid: cc7981c99f9926440824a105b1b7fc11, type: 2}
   colorParticles:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
@@ -2169,7 +2270,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
-  yScale: 1
+  fogOfFunction: 0
+  yScale: 0.1
+  particleScale: 4
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -2187,223 +2290,48 @@ MonoBehaviour:
   functionSamples: 0
   functionSamplingInterval: {x: 0, y: 0}
   texture: {fileID: 0}
---- !u!4 &1026355016
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026355014}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1034482292
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1034482295}
-  - component: {fileID: 1034482294}
-  - component: {fileID: 1034482293}
-  m_Layer: 0
-  m_Name: ExperimentalTexturedTerrain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
---- !u!154 &1034482293
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034482292}
-  m_Material: {fileID: 0}
-  m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: ba00d087fd5af2d46ad028661b24cbf8, type: 2}
-  m_EnableTreeColliders: 1
---- !u!218 &1034482294
-Terrain:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034482292}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: ba00d087fd5af2d46ad028661b24cbf8, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
-  m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
-  m_DrawHeightmap: 1
-  m_DrawInstanced: 0
-  m_DrawTreesAndFoliage: 1
-  m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 2ed851fbf9e8d1047a609237c5f8629d, type: 2}
-  m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
-  m_DeringLightProbesForTrees: 1
-  m_ScaleInLightmap: 0.016
-  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
-  m_GroupingID: 0
-  m_RenderingLayerMask: 1
-  m_AllowAutoConnect: 1
---- !u!4 &1034482295
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034482292}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1105790462
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1105790465}
-  - component: {fileID: 1105790464}
-  - component: {fileID: 1105790463}
-  m_Layer: 0
-  m_Name: LandscapeDynamic_RunPSO
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1105790463
+--- !u!114 &1159119786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105790462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
-  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
-  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
-    type: 3}
-  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
-    type: 3}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 1
-  yScale: 1
-  displayConnectivity: 0
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!114 &1105790464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105790462}
+  m_GameObject: {fileID: 1159119784}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 0
+  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 0
-  problem: 56
+  problem: 4
   perlinOctaves: 8
   perlinAmplitude: 20
-  perlinFrequency: {x: 0.02, y: 0.02}
+  perlinFrequency: {x: 0.04, y: 0.04}
   perlinAmplitudePerOctave: 0.5
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 0}
-  negateImage: 0
-  xMax: 100
-  vMax: 1
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
+  xMax: 10
+  vMax: 0.15
   chi: 1
-  omega: 0.729844
-  c: 1.494
+  omega: 0.5
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
-  initialX: {x: -100, y: 100}
+  initialX: {x: -10, y: 10}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -2411,19 +2339,19 @@ MonoBehaviour:
   nParticles: 10
   radius: 1
   tgf_filename: graphs/ring_n10r1.tgf
---- !u!4 &1105790465
+--- !u!4 &1159119787
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105790462}
+  m_GameObject: {fileID: 1159119784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1180581795
 GameObject:
@@ -2494,7 +2422,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: -20
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -2530,7 +2460,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 57
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -2539,19 +2468,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 2800000, guid: be5e4a3ac69462d40b161b5e71bcea28, type: 3}
-  negateImage: 1
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -2571,7 +2503,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1234683794
 GameObject:
@@ -2642,7 +2574,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: -20
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -2678,7 +2612,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 57
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -2687,19 +2620,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 2800000, guid: 63031e227cf52ed498df0257a36bc3a1, type: 3}
-  negateImage: 0
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -2719,107 +2655,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1295798265
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1295798267}
-  - component: {fileID: 1295798266}
-  m_Layer: 0
-  m_Name: Sphere
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1295798266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1295798265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: a86a729f107b9e4418365d4240afe7e1, type: 3}
-  functionData: {fileID: 4900000, guid: b1eb52aa6e45dd94b8784bd48915f68c, type: 3}
-  topologyData: {fileID: 0}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 4792472546745710705, guid: 27334f2ce55b1184192343ae988c9f76,
-    type: 3}
-  functionPrefab: {fileID: 1172511026367645036, guid: a4cf417d8c35c4240a48ab9b997f035a,
-    type: 3}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 0.4185208, g: 0.8962264, b: 0.45685545, a: 1}
-    key1: {r: 0, g: 0.8148837, b: 1, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 1
-  yScale: 0.025
-  displayConnectivity: 1
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!4 &1295798267
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1295798265}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332751929
 GameObject:
@@ -2885,7 +2721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1359318825
 GameObject:
@@ -2956,7 +2792,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: 1
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -2992,7 +2830,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 0
   problem: 56
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -3001,19 +2838,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 123, y: 345}
   image: {fileID: 0}
-  negateImage: 0
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -3033,7 +2873,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372170337
 GameObject:
@@ -3104,7 +2944,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: -20
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -3140,7 +2982,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 57
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -3149,19 +2990,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 2800000, guid: 7e13a8fcee1b8c4468fd5c463c982b15, type: 3}
-  negateImage: 1
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -3181,106 +3025,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1466078418
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1466078420}
-  - component: {fileID: 1466078419}
-  m_Layer: 0
-  m_Name: PSORender2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1466078419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466078418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: 4018d732215df9742acbf8a92ab243aa, type: 3}
-  functionData: {fileID: 0}
-  topologyData: {fileID: 0}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 4792472546745710705, guid: 27334f2ce55b1184192343ae988c9f76,
-    type: 3}
-  functionPrefab: {fileID: 0}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 0.4185208, g: 0.8962264, b: 0.45685545, a: 1}
-    key1: {r: 0, g: 0.8148837, b: 1, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 0
-  yScale: 1
-  displayConnectivity: 1
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!4 &1466078420
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466078418}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1525348932
 GameObject:
@@ -3438,206 +3183,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525348932}
   m_CullTransparentMesh: 0
---- !u!1 &1675169978
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1675169980}
-  - component: {fileID: 1675169979}
-  m_Layer: 0
-  m_Name: LandscapeDynamic_PSO.NET - Reference 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1675169979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675169978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
-  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
-  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
-    type: 3}
-  functionPrefab: {fileID: 7344741328182010108, guid: 20b6c475df4c09b4ab622384b7348c00,
-    type: 3}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 1
-  yScale: 1
-  displayConnectivity: 0
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!4 &1675169980
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675169978}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1681381124
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1681381126}
-  - component: {fileID: 1681381125}
-  m_Layer: 0
-  m_Name: Rastrigin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1681381125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681381124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: 2ca8ecbe9e731ef4e94bceb3d870906b, type: 3}
-  functionData: {fileID: 4900000, guid: e4a699c1b2234134dabb1f3cdc314cba, type: 3}
-  topologyData: {fileID: 0}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 4792472546745710705, guid: 27334f2ce55b1184192343ae988c9f76,
-    type: 3}
-  functionPrefab: {fileID: 1172511026367645036, guid: a4cf417d8c35c4240a48ab9b997f035a,
-    type: 3}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 0.4185208, g: 0.8962264, b: 0.45685545, a: 1}
-    key1: {r: 0, g: 0.8148837, b: 1, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 1
-  yScale: 0.05
-  displayConnectivity: 1
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!4 &1681381126
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681381124}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,6 +3231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoStart: 1
+  scale: 1
   innerRadius: 15
   outerRadius: 200
   zoomIn: 1
@@ -3796,6 +3342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBehaviour: {fileID: 0}
+  globalScale: 1
   autoSwitch: 1
   minTime: 2
   maxTime: 4
@@ -3812,6 +3359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoStart: 1
+  scale: 1
   innerRadius: 15
   outerRadius: 40
   zoomIn: 1
@@ -3834,6 +3382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoStart: 1
+  scale: 1
   innerRadius: 15
   outerRadius: 40
   zoomIn: 1
@@ -3856,6 +3405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoStart: 1
+  scale: 1
   innerRadius: 15
   outerRadius: 30
   zoomIn: 1
@@ -3878,6 +3428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoStart: 1
+  scale: 1
   innerRadius: 15
   outerRadius: 100
   zoomIn: 1
@@ -3900,6 +3451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoStart: 1
+  scale: 1
   innerRadius: 15
   outerRadius: 100
   zoomIn: 1
@@ -3922,6 +3474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoStart: 1
+  scale: 1
   innerRadius: 15
   outerRadius: 100
   zoomIn: 1
@@ -3931,402 +3484,6 @@ MonoBehaviour:
   targetParticle: 0
   usePrediction: 1
   maxSpeed: 5
---- !u!1 &1690709424
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1690709427}
-  - component: {fileID: 1690709426}
-  - component: {fileID: 1690709425}
-  m_Layer: 0
-  m_Name: LandscapeDynamic_PSO.NET
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1690709425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690709424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
-  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
-  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
-    type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
-    type: 3}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 1
-  yScale: 1
-  displayConnectivity: 0
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!114 &1690709426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690709424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useOpenPSONET: 1
-  functionSamplingSize: 257
-  seed: 12345
-  maxIterations: 10000
-  maxEvaluations: 980000
-  algorithm: 1
-  gBest: 1
-  problem: 56
-  perlinOctaves: 8
-  perlinAmplitude: 20
-  perlinFrequency: {x: 0.04, y: 0.04}
-  perlinAmplitudePerOctave: 0.5
-  perlinFrequencyPerOctave: 2
-  perlinOffset: {x: 0, y: 0}
-  image: {fileID: 0}
-  negateImage: 0
-  xMax: 100
-  vMax: 1
-  chi: 1
-  omega: 0.729844
-  c: 1.494
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
-  initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
-  watershedStrategy: 0
-  topology: 1
-  dimension: {x: 7, y: 7}
-  neighborhoodType: 1
-  nParticles: 10
-  radius: 1
-  tgf_filename: graphs/ring_n10r1.tgf
---- !u!4 &1690709427
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690709424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1720356798
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1720356801}
-  - component: {fileID: 1720356800}
-  - component: {fileID: 1720356799}
-  m_Layer: 0
-  m_Name: LandscapeImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1720356799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720356798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
-  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
-  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
-    type: 3}
-  functionPrefab: {fileID: 7416340349858473553, guid: 85c3a738a0bf8f54dbfdd03c72927795,
-    type: 3}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 1
-  yScale: -20
-  displayConnectivity: 0
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!114 &1720356800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720356798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useOpenPSONET: 1
-  functionSamplingSize: 257
-  seed: 12345
-  maxIterations: 10000
-  maxEvaluations: 980000
-  algorithm: 1
-  gBest: 0
-  problem: 58
-  perlinOctaves: 8
-  perlinAmplitude: 20
-  perlinFrequency: {x: 0.02, y: 0.02}
-  perlinAmplitudePerOctave: 0.5
-  perlinFrequencyPerOctave: 2
-  perlinOffset: {x: 0, y: 0}
-  image: {fileID: 2800000, guid: 9003f56ad2f463b41bc986563c1d70e5, type: 3}
-  negateImage: 1
-  xMax: 100
-  vMax: 2
-  chi: 1
-  omega: 0.729844
-  c: 1.494
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
-  initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
-  watershedStrategy: 0
-  topology: 1
-  dimension: {x: 7, y: 7}
-  neighborhoodType: 1
-  nParticles: 10
-  radius: 1
-  tgf_filename: graphs/ring_n10r1.tgf
---- !u!4 &1720356801
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720356798}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1744359015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1744359017}
-  - component: {fileID: 1744359016}
-  m_Layer: 0
-  m_Name: LandscapeDynamic_PSO.NET - Reference 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1744359016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744359015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: 31a35e7c7e144464381715d964599931, type: 3}
-  functionData: {fileID: 4900000, guid: 042083aa0c8733b49bf0902b28ddacc3, type: 3}
-  topologyData: {fileID: 4900000, guid: 2271d7156ad23f347a24231a04aca5e8, type: 3}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
-    type: 3}
-  functionPrefab: {fileID: 7344741328182010108, guid: 20b6c475df4c09b4ab622384b7348c00,
-    type: 3}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 1
-  yScale: 1
-  displayConnectivity: 1
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!4 &1744359017
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744359015}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780414393
 GameObject:
   m_ObjectHideFlags: 0
@@ -4396,7 +3553,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: 1
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -4432,7 +3591,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 56
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -4441,19 +3599,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 0}
-  negateImage: 0
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -4473,9 +3634,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1891856394
+--- !u!1 &1861193421
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4483,23 +3644,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1891856397}
-  - component: {fileID: 1891856396}
-  - component: {fileID: 1891856395}
+  - component: {fileID: 1861193424}
+  - component: {fileID: 1861193423}
+  - component: {fileID: 1861193422}
   m_Layer: 0
-  m_Name: LandscapeImageDynamic
+  m_Name: Experiment9-Landscape (connectivity)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1891856395
+--- !u!114 &1861193422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891856394}
+  m_GameObject: {fileID: 1861193421}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
@@ -4511,9 +3672,9 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 5381516340374100219, guid: 0c777007dedbfa6499a2b51cbabc3e6f,
+  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
     type: 3}
-  materialOverride: {fileID: 0}
+  materialOverride: {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
   colorParticles:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
@@ -4544,8 +3705,10 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
-  yScale: 20
-  displayConnectivity: 0
+  fogOfFunction: 0
+  yScale: 1
+  particleScale: 1
+  displayConnectivity: 1
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
   boundary:
@@ -4562,13 +3725,13 @@ MonoBehaviour:
   functionSamples: 0
   functionSamplingInterval: {x: 0, y: 0}
   texture: {fileID: 0}
---- !u!114 &1891856396
+--- !u!114 &1861193423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891856394}
+  m_GameObject: {fileID: 1861193421}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
@@ -4580,50 +3743,52 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 0
-  problem: 57
+  problem: 56
   perlinOctaves: 8
   perlinAmplitude: 20
-  perlinFrequency: {x: 0.02, y: 0.02}
+  perlinFrequency: {x: 0.04, y: 0.04}
   perlinAmplitudePerOctave: 0.5
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
-  image: {fileID: 2800000, guid: 7e13a8fcee1b8c4468fd5c463c982b15, type: 3}
-  negateImage: 1
+  image: {fileID: 2800000, guid: 4f81b20b8c9853241aae9b4d8397de12, type: 3}
+  invertImage: 1
+  sampleRadius: 5
+  useStimulus: 1
   xMax: 100
-  vMax: 2
+  vMax: 5
   chi: 1
-  omega: 0.729844
-  c: 1.494
+  omega: 0.5
+  c1: 5
+  c2: 0
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
-  dimension: {x: 5, y: 5}
+  dimension: {x: 7, y: 7}
   neighborhoodType: 1
   nParticles: 10
   radius: 1
   tgf_filename: graphs/ring_n10r1.tgf
---- !u!4 &1891856397
+--- !u!4 &1861193424
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891856394}
+  m_GameObject: {fileID: 1861193421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1895641927
+--- !u!1 &1868172937
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4631,40 +3796,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1895641929}
-  - component: {fileID: 1895641928}
+  - component: {fileID: 1868172940}
+  - component: {fileID: 1868172939}
+  - component: {fileID: 1868172938}
   m_Layer: 0
-  m_Name: PSORender3
+  m_Name: Experiment8-Landscape (connectivity)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1895641928
+--- !u!114 &1868172938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895641927}
+  m_GameObject: {fileID: 1868172937}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: c1434f41afcad2f4fbaf0fbc14be34c3, type: 3}
-  functionData: {fileID: 4900000, guid: 57b9f5af66bf1a644b231589898a4f22, type: 3}
-  topologyData: {fileID: 0}
+  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
+  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
+  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
   timePerIteration: 0.1
-  particlePrefab: {fileID: 580167712252121804, guid: b53083efb7dbe154093c2cab46e9e71d,
+  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1172511026367645036, guid: a4cf417d8c35c4240a48ab9b997f035a,
+  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
     type: 3}
-  materialOverride: {fileID: 0}
+  materialOverride: {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
   colorParticles:
     serializedVersion: 2
-    key0: {r: 0.4185208, g: 0.8962264, b: 0.45685545, a: 1}
-    key1: {r: 0, g: 0.8148837, b: 1, a: 1}
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
     key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
     key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
     key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
@@ -4691,7 +3857,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: 1
+  particleScale: 1
   displayConnectivity: 1
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -4709,19 +3877,68 @@ MonoBehaviour:
   functionSamples: 0
   functionSamplingInterval: {x: 0, y: 0}
   texture: {fileID: 0}
---- !u!4 &1895641929
+--- !u!114 &1868172939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868172937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useOpenPSONET: 1
+  functionSamplingSize: 257
+  seed: 12345
+  maxIterations: 10000
+  maxEvaluations: 980000
+  algorithm: 1
+  problem: 56
+  perlinOctaves: 8
+  perlinAmplitude: 20
+  perlinFrequency: {x: 0.04, y: 0.04}
+  perlinAmplitudePerOctave: 0.5
+  perlinFrequencyPerOctave: 2
+  perlinOffset: {x: 0, y: 0}
+  image: {fileID: 2800000, guid: 4f81b20b8c9853241aae9b4d8397de12, type: 3}
+  invertImage: 1
+  sampleRadius: 5
+  useStimulus: 1
+  xMax: 100
+  vMax: 5
+  chi: 1
+  omega: 0.5
+  c1: 2
+  c2: 10
+  weightStrategy: 0
+  cStrategy: 0
+  assymetricInitialization: 1
+  initialX: {x: -100, y: 100}
+  numExtraRandomNeighbours: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
+  watershedStrategy: 0
+  topology: 1
+  dimension: {x: 7, y: 7}
+  neighborhoodType: 1
+  nParticles: 10
+  radius: 1
+  tgf_filename: graphs/ring_n10r1.tgf
+--- !u!4 &1868172940
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895641927}
+  m_GameObject: {fileID: 1868172937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1898501128
 GameObject:
@@ -4792,7 +4009,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: 1
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -4828,7 +4047,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 0
   problem: 56
   perlinOctaves: 4
   perlinAmplitude: 20
@@ -4837,19 +4055,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 345, y: 123}
   image: {fileID: 0}
-  negateImage: 0
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -4869,7 +4090,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1905803255
 GameObject:
@@ -5027,6 +4248,158 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905803255}
   m_CullTransparentMesh: 0
+--- !u!1 &1919710287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919710290}
+  - component: {fileID: 1919710289}
+  - component: {fileID: 1919710288}
+  m_Layer: 0
+  m_Name: "Experiment5-Mir\xF3"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1919710288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919710287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
+  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
+  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
+  timePerIteration: 0.1
+  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
+    type: 3}
+  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+    type: 3}
+  materialOverride: {fileID: 2100000, guid: 57e83d249ce3d6742a6c970d711b56a8, type: 2}
+  colorParticles:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
+    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
+    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
+    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
+    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 23982
+    ctime3: 34192
+    ctime4: 43975
+    ctime5: 52001
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  moveY: 1
+  fogOfFunction: 0
+  yScale: -20
+  particleScale: 1
+  displayConnectivity: 0
+  playSpeed: 1
+  mainCamera: {fileID: 1687258584}
+  boundary:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  extentsY: {x: 0, y: 0}
+  totalTime: 0
+  functionText: 
+  runText: 
+  topologyText: 
+  functionSamples: 0
+  functionSamplingInterval: {x: 0, y: 0}
+  texture: {fileID: 0}
+--- !u!114 &1919710289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919710287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useOpenPSONET: 1
+  functionSamplingSize: 257
+  seed: 12345
+  maxIterations: 10000
+  maxEvaluations: 980000
+  algorithm: 1
+  problem: 58
+  perlinOctaves: 8
+  perlinAmplitude: 20
+  perlinFrequency: {x: 0.04, y: 0.04}
+  perlinAmplitudePerOctave: 0.5
+  perlinFrequencyPerOctave: 2
+  perlinOffset: {x: 0, y: 0}
+  image: {fileID: 2800000, guid: 9003f56ad2f463b41bc986563c1d70e5, type: 3}
+  invertImage: 1
+  sampleRadius: 5
+  useStimulus: 0
+  xMax: 100
+  vMax: 1
+  chi: 1
+  omega: 0.5
+  c1: 1
+  c2: 1
+  weightStrategy: 0
+  cStrategy: 0
+  assymetricInitialization: 1
+  initialX: {x: -100, y: 100}
+  numExtraRandomNeighbours: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
+  watershedStrategy: 0
+  topology: 1
+  dimension: {x: 7, y: 7}
+  neighborhoodType: 1
+  nParticles: 10
+  radius: 1
+  tgf_filename: graphs/ring_n10r1.tgf
+--- !u!4 &1919710290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919710287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960928940
 GameObject:
   m_ObjectHideFlags: 0
@@ -5096,7 +4469,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: -20
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -5132,7 +4507,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 58
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -5141,19 +4515,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 2800000, guid: 7e13a8fcee1b8c4468fd5c463c982b15, type: 3}
-  negateImage: 1
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -5173,106 +4550,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 37
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1982341700
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1982341702}
-  - component: {fileID: 1982341701}
-  m_Layer: 0
-  m_Name: PSORender1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1982341701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982341700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runData: {fileID: 4900000, guid: c0350a7de25d3c240b8dee7accd95269, type: 3}
-  functionData: {fileID: 0}
-  topologyData: {fileID: 0}
-  timePerIteration: 0.1
-  particlePrefab: {fileID: 4792472546745710705, guid: 27334f2ce55b1184192343ae988c9f76,
-    type: 3}
-  functionPrefab: {fileID: 0}
-  materialOverride: {fileID: 0}
-  colorParticles:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
-    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
-    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
-    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
-    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
-    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 23982
-    ctime3: 34192
-    ctime4: 43975
-    ctime5: 52001
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  moveY: 0
-  yScale: 1
-  displayConnectivity: 1
-  playSpeed: 1
-  mainCamera: {fileID: 1687258584}
-  boundary:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  extentsY: {x: 0, y: 0}
-  totalTime: 0
-  functionText: 
-  runText: 
-  topologyText: 
-  functionSamples: 0
-  functionSamplingInterval: {x: 0, y: 0}
-  texture: {fileID: 0}
---- !u!4 &1982341702
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982341700}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2110904779
 GameObject:
@@ -5343,7 +4621,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: -20
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -5379,7 +4659,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 58
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -5388,19 +4667,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 2800000, guid: be5e4a3ac69462d40b161b5e71bcea28, type: 3}
-  negateImage: 1
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -5420,7 +4702,159 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2111576076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2111576079}
+  - component: {fileID: 2111576078}
+  - component: {fileID: 2111576077}
+  m_Layer: 0
+  m_Name: Experiment3-Landscape (4 octaves)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &2111576077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111576076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
+  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
+  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
+  timePerIteration: 0.1
+  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
+    type: 3}
+  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+    type: 3}
+  materialOverride: {fileID: 2100000, guid: eca6802b31ba1c3438fae543ce489885, type: 2}
+  colorParticles:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
+    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
+    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
+    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
+    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 23982
+    ctime3: 34192
+    ctime4: 43975
+    ctime5: 52001
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  moveY: 1
+  fogOfFunction: 1
+  yScale: 1
+  particleScale: 1
+  displayConnectivity: 0
+  playSpeed: 1
+  mainCamera: {fileID: 1687258584}
+  boundary:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  extentsY: {x: 0, y: 0}
+  totalTime: 0
+  functionText: 
+  runText: 
+  topologyText: 
+  functionSamples: 0
+  functionSamplingInterval: {x: 0, y: 0}
+  texture: {fileID: 0}
+--- !u!114 &2111576078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111576076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useOpenPSONET: 1
+  functionSamplingSize: 257
+  seed: 12345
+  maxIterations: 10000
+  maxEvaluations: 980000
+  algorithm: 1
+  problem: 56
+  perlinOctaves: 4
+  perlinAmplitude: 20
+  perlinFrequency: {x: 0.04, y: 0.04}
+  perlinAmplitudePerOctave: 0.5
+  perlinFrequencyPerOctave: 2
+  perlinOffset: {x: 0, y: 0}
+  image: {fileID: 0}
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
+  xMax: 100
+  vMax: 10
+  chi: 1
+  omega: 0.5
+  c1: 1
+  c2: 4
+  weightStrategy: 0
+  cStrategy: 0
+  assymetricInitialization: 1
+  initialX: {x: -100, y: 100}
+  numExtraRandomNeighbours: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
+  watershedStrategy: 0
+  topology: 1
+  dimension: {x: 7, y: 7}
+  neighborhoodType: 1
+  nParticles: 10
+  radius: 1
+  tgf_filename: graphs/ring_n10r1.tgf
+--- !u!4 &2111576079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111576076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2135511398
 GameObject:
@@ -5491,7 +4925,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   moveY: 1
+  fogOfFunction: 0
   yScale: -20
+  particleScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -5527,7 +4963,6 @@ MonoBehaviour:
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  gBest: 1
   problem: 57
   perlinOctaves: 8
   perlinAmplitude: 20
@@ -5536,19 +4971,22 @@ MonoBehaviour:
   perlinFrequencyPerOctave: 2
   perlinOffset: {x: 0, y: 0}
   image: {fileID: 2800000, guid: 9003f56ad2f463b41bc986563c1d70e5, type: 3}
-  negateImage: 1
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
   xMax: 100
   vMax: 1
   chi: 1
   omega: 0.729844
-  c: 1.494
+  c1: 1.5
+  c2: 1.5
   weightStrategy: 0
   cStrategy: 0
   assymetricInitialization: 1
   initialX: {x: -100, y: 100}
   numExtraRandomNeighbours: 0
-  stopCriterion: 0.01
-  continueAfterStop: 0
+  stopCriterion: 0.00001
+  continueAfterStop: 1
   watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
@@ -5568,7 +5006,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138677391
 GameObject:

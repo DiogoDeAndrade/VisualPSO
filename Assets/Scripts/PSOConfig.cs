@@ -13,22 +13,21 @@ public class PSOConfig : MonoBehaviour
                           Ackley = 8, ShiftedQuadricWithNoise = 9, RotatedGriewank = 10,
                           PerlinLandscape = 56,
                           ImageSaturation = 57,
-                          ImageValue = 58 };
+                          ImageValue = 58,
+                          RalphBellCurveMean = 59, RalphBellCurveVariance = 60 };
     public enum InertiaWeight { Fixed = 0, TVIW = 1 }
     public enum CStrategy { Fixed = 0, TVACPSO = 1 }
     public enum WatershedStrategy { None, WorstSoFar, WorstLastIteration, BestWorst };
-    public enum Topology { StaticRing1D, StaticGrid2D, StaticGraph };
+    public enum Topology { StaticRing1D, StaticGrid2D, StaticGraph, Global };
     public enum NeightborhoodType { Moore, VN, Ring };
 
-    [Label("Use OpenPSO.NET")]
-    public bool                 useOpenPSONET = false;
+    [Label("Use OpenPSO.NET"), HideInInspector]
+    public bool                 useOpenPSONET = true;
     public int                  functionSamplingSize = 257;
     public int                  seed = 12345;
-    public int                  maxIterations = 10000;
-    public int                  maxEvaluations = 980000;
+    [HideInInspector] public int                  maxIterations = 10000;
+    [HideInInspector] public int                  maxEvaluations = 980000;
     public Algorithm            algorithm = Algorithm.PSO;
-    [Label("Use Global Best")]
-    public bool                 gBest = false;
     public Problem              problem = Problem.PerlinLandscape;
     [ShowIf("IsPerlinLandscapeAndPSONET")]
     public int                  perlinOctaves = 8;
@@ -45,27 +44,32 @@ public class PSOConfig : MonoBehaviour
     [ShowIf("IsImageAndPSONET")]
     public Texture2D            image;
     [ShowIf("IsImageAndPSONET")]
-    public bool                 negateImage = false;
+    public bool                 invertImage = false;
+    [ShowIf("IsRalph")]
+    public int                  sampleRadius = 5;
+    [ShowIf("IsRalph"),Label("Use Stimulus Instead of Response")]
+    public bool                 useStimulus = false;
     public float                xMax = 100;
     public float                vMax = 1;
-    public float                chi = 1;
+    [HideInInspector] public float                chi = 1;
     public float                omega = 0.729844f;
-    public float                c = 1.494f;
-    public InertiaWeight        weightStrategy = 0;
-    public CStrategy            cStrategy = 0;
-    public bool                 assymetricInitialization = true;
+    public float                c1 = 1.5f;
+    public float                c2 = 1.5f;
+    [HideInInspector] public InertiaWeight        weightStrategy = 0;
+    [HideInInspector] public CStrategy            cStrategy = 0;
+    [HideInInspector] public bool                 assymetricInitialization = true;
     [ShowIf("assymetricInitialization")]
     public Vector2              initialX = new Vector2(-100.0f, 100.0f);
-    public int                  numExtraRandomNeighbours = 0;
-    public float                stopCriterion = 0.01f;
-    public bool                 continueAfterStop = false;
-    public WatershedStrategy    watershedStrategy = WatershedStrategy.None;
+    [HideInInspector] public int                  numExtraRandomNeighbours = 0;
+    [HideInInspector] public float                stopCriterion = 0.01f;
+    [HideInInspector] public bool                 continueAfterStop = false;
+    [HideInInspector] public WatershedStrategy    watershedStrategy = WatershedStrategy.None;
     public Topology             topology = Topology.StaticGrid2D;
     [ShowIf("IsStaticGrid2D")]
     public Vector2Int           dimension = new Vector2Int(7,7);
     [ShowIf("IsStaticGrid2D")]
     public NeightborhoodType    neighborhoodType = NeightborhoodType.VN;
-    [ShowIf("IsStaticRing1D")]
+    [ShowIf("IsStaticRing1DOrGlobal")]
     public int                  nParticles = 10;
     [ShowIf("IsStaticRing1D")]
     public float                radius = 1;
@@ -73,6 +77,11 @@ public class PSOConfig : MonoBehaviour
     public string               tgf_filename = "graphs/ring_n10r1.tgf";
 
     System.Diagnostics.Process psoRun;
+
+    bool IsStaticRing1DOrGlobal()
+    {
+        return topology == Topology.StaticRing1D || topology == Topology.Global;
+    }
 
     bool IsStaticRing1D()
     {
@@ -98,10 +107,15 @@ public class PSOConfig : MonoBehaviour
     {
         if (!useOpenPSONET) return false;
 
-        return (problem == Problem.ImageValue) || (problem == Problem.ImageSaturation);
+        return (problem == Problem.ImageValue) || (problem == Problem.ImageSaturation) || (problem == Problem.RalphBellCurveMean) || (problem == Problem.RalphBellCurveVariance);
     }
 
+    bool IsRalph()
+    {
+        if (!IsImageAndPSONET()) return false;
 
+        return (problem == Problem.RalphBellCurveMean) || (problem == Problem.RalphBellCurveVariance);
+    }
 
     void Awake()
     {
@@ -135,9 +149,11 @@ public class PSOConfig : MonoBehaviour
                     ifunction = new OpenPSO.Functions.Schaffer2();
                     break;
                 case Problem.Weierstrass:
-                    throw new NotImplementedException();
+                    ifunction = new OpenPSO.Functions.Weierstrass();
+                    break;
                 case Problem.Ackley:
-                    throw new NotImplementedException();
+                    ifunction = new OpenPSO.Functions.Ackley();
+                    break;
                 case Problem.ShiftedQuadricWithNoise:
                     throw new NotImplementedException();
                 case Problem.RotatedGriewank:
@@ -153,8 +169,8 @@ public class PSOConfig : MonoBehaviour
                         throw new ArgumentException("Image must be readable to use with Image Value function!");
                     }
                     ifunction = new PSOImageValueEvaluator(image, 
-                                                           new Rect(-initialX.x, -initialX.x, initialX.y - initialX.x, initialX.y - initialX.x), 
-                                                           (negateImage)?(-1.0):(1.0));
+                                                           new Rect(initialX.x, initialX.x, initialX.y - initialX.x, initialX.y - initialX.x), 
+                                                           (invertImage) ?(-1.0):(1.0));
                     break;
                 case Problem.ImageSaturation:
                     if (!image.isReadable)
@@ -162,8 +178,19 @@ public class PSOConfig : MonoBehaviour
                         throw new ArgumentException("Image must be readable to use with Image Saturation function!");
                     }
                     ifunction = new PSOImageSaturationEvaluator(image,
-                                                                new Rect(-initialX.x, -initialX.x, initialX.y - initialX.x, initialX.y - initialX.x),
-                                                                (negateImage) ? (-1.0) : (1.0));
+                                                                new Rect(initialX.x, initialX.x, initialX.y - initialX.x, initialX.y - initialX.x),
+                                                                (invertImage) ? (-1.0) : (1.0));
+                    break;
+                case Problem.RalphBellCurveMean:
+                case Problem.RalphBellCurveVariance:
+                    if (!image.isReadable)
+                    {
+                        throw new ArgumentException("Image must be readable to use with Image Saturation function!");
+                    }
+                    ifunction = new PSOImageRalphBellCurve(image,
+                                                           new Rect(initialX.x, initialX.x, initialX.y - initialX.x, initialX.y - initialX.x),
+                                                           (invertImage) ? (-1.0) : (1.0),
+                                                           sampleRadius, problem == Problem.RalphBellCurveMean, useStimulus);
                     break;
                 default:
                     throw new NotImplementedException();
@@ -191,6 +218,9 @@ public class PSOConfig : MonoBehaviour
                     break;
                 case Topology.StaticGraph:
                     throw new NotImplementedException();
+                case Topology.Global:
+                    itopology = new OpenPSO.Lib.Topologies.GlobalTopology(nParticles);
+                    break;
                 default:
                     break;
             }
@@ -198,12 +228,11 @@ public class PSOConfig : MonoBehaviour
             OpenPSO.Lib.PSO pso = new OpenPSO.Lib.PSO(
                 p => true,
                 p => omega,
-                p => c,
-                p => c,
+                p => c1,
+                p => c2,
                 p => -xMax, 
                 p => xMax,
                 p => vMax,
-                (gBest)?(OpenPSO.Lib.GroupBestPosition.Global): (OpenPSO.Lib.GroupBestPosition.Local),
                 initialX.x,
                 initialX.y,
                 ifunction,
@@ -230,6 +259,10 @@ public class PSOConfig : MonoBehaviour
             {
                 psoRender.texture = image;
             }
+            else
+            {
+                psoRender.texture = null;
+            }
         }
         else
         {
@@ -244,13 +277,13 @@ public class PSOConfig : MonoBehaviour
                 file.WriteLine("max_t = " + maxIterations);
                 file.WriteLine("max_evaluations = " + maxEvaluations);
                 file.WriteLine("algorithm = " + (int)algorithm);
-                file.WriteLine("gbest = " + ((gBest) ? ("1") : ("0")));
+                file.WriteLine("gbest = " + ((topology == Topology.Global) ? ("1") : ("0")));
                 file.WriteLine("problem = " + (int)problem);
                 file.WriteLine("Xmax = " + xMax);
                 file.WriteLine("Vmax = " + vMax);
                 file.WriteLine("chi = " + chi);
                 file.WriteLine("omega = " + omega);
-                file.WriteLine("c = " + c);
+                file.WriteLine("c = " + c1);
                 file.WriteLine("numberVariables = 2");
                 file.WriteLine("iWeightStrategy = " + (int)weightStrategy);
                 file.WriteLine("cStrategy = " + (int)cStrategy);

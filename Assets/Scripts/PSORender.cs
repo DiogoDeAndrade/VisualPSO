@@ -13,7 +13,9 @@ public class PSORender : MonoBehaviour
     public Material     materialOverride;
     public Gradient     colorParticles;
     public bool         moveY = false;
+    public bool         fogOfFunction = false;
     public float        yScale = 1.0f;
+    public float        particleScale = 1.0f;
     public bool         displayConnectivity = true;
     [Range(0.0f, 10.0f)]
     public float        playSpeed = 1.0f;
@@ -145,12 +147,13 @@ public class PSORender : MonoBehaviour
             mainCamera.orthographicSize = (maxExtent * 0.5f) * 1.05f;
         }
 
-        float scale = maxExtent / 100.0f;
+        float scale = maxExtent / 150.0f;
         foreach (var particle in particles)
         {
-            particle.scale = scale;
+            particle.scale = scale * particleScale;
             particle.color = colorParticles.Evaluate(Random.Range(0.0f, 1.0f));
             particle.totalTime = totalTime;
+            particle.offsetY *= scale * particleScale;
         }
 
         if (displayConnectivity)
@@ -196,6 +199,7 @@ public class PSORender : MonoBehaviour
         {
             var visFunction = Instantiate(functionPrefab);
             visFunction.manager = this;
+            visFunction.SetFoF(fogOfFunction);
 
             if ((functionData) || (functionText != ""))
             {

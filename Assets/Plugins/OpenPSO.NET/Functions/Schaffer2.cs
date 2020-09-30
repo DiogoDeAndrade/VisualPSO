@@ -27,7 +27,9 @@ namespace OpenPSO.Functions
     /// </remarks>
     public class Schaffer2 : IFunction
     {
-        public double Evaluate(IList<double> position)
+        public double Evaluate(IList<double> position) => Function(position);
+
+        public static double Function(IList<double> position)
         {
             if (position.Count != 2)
                 throw new ArgumentException(
@@ -39,5 +41,6 @@ namespace OpenPSO.Functions
 
             return 0.5 + (tmp1 * tmp1 - 0.5) / (tmp2 * tmp2);
         }
+
     }
 }

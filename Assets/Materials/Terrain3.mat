@@ -21,6 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
+    - Boolean_A3A19A1: 0
     - DivisionWidth: 0.08
     - Vector1_51C2E57D: 2
     - Vector1_91BD988E: 2
@@ -31,4 +32,5 @@ Material:
     m_Colors:
     - Color_54B68377: {r: 1.5686275, g: 8.658824, b: 11.984314, a: 1}
     - Color_B4000CFF: {r: 1.0352942, g: 0.8156863, b: 5.992157, a: 1}
+    - LimitsY: {r: 10, g: 30, b: 0, a: 0}
     - Vector2_5DD4B6D2: {r: 10, g: 30, b: 0, a: 0}

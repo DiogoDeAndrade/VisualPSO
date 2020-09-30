@@ -6,6 +6,7 @@ using NaughtyAttributes;
 public class PSOCameraController : MonoBehaviour
 {
     public PSOCameraBehaviour   startBehaviour;
+    public float                globalScale = 1.0f;
     public bool                 autoSwitch;
     [ShowIf("autoSwitch")]
     public float                minTime;
@@ -28,6 +29,7 @@ public class PSOCameraController : MonoBehaviour
         {
             cb.enabled = false;
             cb.autoStart = false;
+            cb.scale = globalScale;
         }
     }
 
@@ -81,6 +83,15 @@ public class PSOCameraController : MonoBehaviour
         {
             current.enabled = false;
             current = null;
+        }
+    }
+
+    public void SetScale(float s)
+    {
+        globalScale = s;
+        foreach (var cameraBehaviour in cameraBehaviours)
+        {
+            cameraBehaviour.scale = s;
         }
     }
 }

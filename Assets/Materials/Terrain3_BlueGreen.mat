@@ -31,4 +31,5 @@ Material:
     m_Colors:
     - Color_54B68377: {r: 0.57938856, g: 2.9960785, b: 0.40784305, a: 1}
     - Color_B4000CFF: {r: 0, g: 1.3427758, b: 2, a: 1}
+    - LimitsY: {r: 10, g: 60, b: 0, a: 0}
     - Vector2_5DD4B6D2: {r: 10, g: 60, b: 0, a: 0}

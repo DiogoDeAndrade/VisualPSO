@@ -26,7 +26,9 @@ namespace OpenPSO.Functions
     /// </remarks>
     public class Griewank : IFunction
     {
-        public double Evaluate(IList<double> position)
+        public double Evaluate(IList<double> position) => Function(position);
+
+        public static double Function(IList<double> position)
         {
             double fit1 = 0.0;
             double fit2 = 1.0;

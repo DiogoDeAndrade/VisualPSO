@@ -29,6 +29,11 @@ public class PSOFunction : MonoBehaviour
 
     }
 
+    virtual public void SetFoF(bool fof)
+    {
+
+    }
+
     public void Parse(string data, float yScale = 1.0f)
     {
         var splitFile = new string[] { "\r\n", "\r", "\n" };

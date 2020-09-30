@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.ObjectModel;
+using OpenPSO.Lib.Topologies;
 
 namespace OpenPSO.Lib
 {
@@ -87,7 +88,6 @@ namespace OpenPSO.Lib
             Func<PSO, double> xMin,
             Func<PSO, double> xMax,
             Func<PSO, double> vMax,
-            GroupBestPosition grpBestPosition, // TODO If topology == null, then assume global, no need for this enum
             double initXMin,
             double initXMax,
             IFunction function,
@@ -95,7 +95,7 @@ namespace OpenPSO.Lib
             int maxEvals,
             double criteria,
             bool critKeepGoing,
-            ITopology topology, // TODO If topology == null, then assume global
+            ITopology topology,
             int? seed = null)
         {
             UpdateStrategy = updateStrategy;
@@ -122,15 +122,11 @@ namespace OpenPSO.Lib
             double[] velocity = new double[NDims];
 
             // Determine strategy for group best position
-            switch (grpBestPosition)
-            {
-                case Lib.GroupBestPosition.Global:
-                    GroupBestPosition = (p, i) => BestSoFar.position[i];
-                    break;
-                case Lib.GroupBestPosition.Local:
-                    GroupBestPosition = (p, i) => p.NeighsBestPositionSoFar[i];
-                    break;
-            }
+            if (topology is GlobalTopology)
+                GroupBestPosition = (p, i) => BestSoFar.position[i];
+            else
+                GroupBestPosition = (p, i) => p.NeighsBestPositionSoFar[i];
+
             TotalEvals = 0;
             rng = seed.HasValue ? new Random(seed.Value) : new Random();
 
@@ -152,6 +148,7 @@ namespace OpenPSO.Lib
                 // Determine fitness for initial position
                 fitness = Function.Evaluate(position); // TODO Doesn't this count for PSO.TotalEvals?
 
+                // TODO In practice it should be the topology to control particle ID
                 particles[i] = new Particle(i, fitness, position, velocity);
 
                 // TODO Hooks such as watershed
@@ -276,23 +273,27 @@ namespace OpenPSO.Lib
             {
                 // TODO Update or not to update according to SS-PSO
 
-                // TODO This loop maybe irrelevant with GBest=true ("global topology")
-                // Cycle through neighbors
-                foreach (Particle pNeigh in Topology.GetNeighbors(pCurr))
+                // Only update neighborhood information if topology not global
+                if (!(Topology is GlobalTopology))
                 {
-                    // TODO If a neighbor particle is the worst particle, mark current particle for updating (SS-PSO only)
-
-                    // Does the neighbor know of better fitness than current
-                    // particle?
-                    if (pNeigh.BestFitnessSoFar < pCurr.NeighsBestFitnessSoFar) // TODO Improve this for seeking max instead of min
+                    // Cycle through neighbors
+                    foreach (Particle pNeigh in Topology.GetNeighbors(pCurr))  // TODO Consider extra neighbors (Small World PSO)
                     {
-                        // If so, current particle will get that knowledge also
-                        pCurr.UpdateBestNeighbor(pNeigh);
+                        // TODO If a neighbor particle is the worst particle, mark current particle for updating (SS-PSO only)
+
+                        // Does the neighbor know of better fitness than current
+                        // particle?
+                        if (pNeigh.BestFitnessSoFar < pCurr.NeighsBestFitnessSoFar) // TODO Improve this for seeking max instead of min
+                        {
+                            // If so, current particle will get that knowledge also
+                            pCurr.UpdateBestNeighbor(pNeigh);
+                        }
                     }
                 }
-
-                // TODO Consider extra neighbors (Small World PSO)
-                // In practice this should be a part of pCurr.Neighbors strategy
+                else
+                {
+                    // TODO Hooks specific for global topology?
+                }
 
                 // Update current particle?
                 if (UpdateStrategy(this)) // TODO Connect this with SS-PSO

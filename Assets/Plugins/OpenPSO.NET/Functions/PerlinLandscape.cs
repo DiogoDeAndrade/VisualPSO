@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 namespace OpenPSO.Functions
 {
+    /// <summary>
+    /// Perlin landscape function.
+    /// </summary>
+    /// <remarks>
+    /// This function is mainly used for procedural landscape generation.
+    /// </remarks>
     public class PerlinLandscape : IFunction
     {
         private int octaves = 8;
@@ -12,8 +18,8 @@ namespace OpenPSO.Functions
         private double frequencyY = 0.02;
         private double amplitudePerOctave = 0.5;
         private double frequencyPerOctave = 2.0;
-        private double offsetX = 0;
-        private double offsetY = 0;
+        private double offsetX = 0.02;
+        private double offsetY = 0.02;
 
         public PerlinLandscape(int octaves = 8, double amplitude = 20, double amplitudePerOctave = 0.5,
                                double frequencyX = 0.02, double frequencyY = 0.02, double frequencyPerOctave = 2,
