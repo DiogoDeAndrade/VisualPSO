@@ -23,6 +23,7 @@ public class CommandLineProcessor : MonoBehaviour
         int         materialPreset = 0;
         bool        fof = false;
         float       limitX = 100.0f;
+        int         seed = 12345;
 
         customPreset.perlinOffset.x = UnityEngine.Random.Range(-1000.0f, 1000.0f);
         customPreset.perlinOffset.y = UnityEngine.Random.Range(-1000.0f, 1000.0f);
@@ -164,6 +165,10 @@ public class CommandLineProcessor : MonoBehaviour
             {
                 float.TryParse(args[i].Substring(5), out customPreset.vMax);
             }
+            else if (args[i].StartsWith("-rngseed"))
+            {
+                int.TryParse(args[i].Substring(8), out seed);
+            }
             else
             {
                 Console.WriteLine($"Unknown argument ${args[i]}");
@@ -187,6 +192,9 @@ public class CommandLineProcessor : MonoBehaviour
         }
 
         activeObject.SetActive(true);
+
+        PSOConfig config = activeObject.GetComponent<PSOConfig>();
+        config.seed = seed;
 
         PSORender psoRender = activeObject.GetComponent<PSORender>();
         psoRender.playSpeed = speed;
