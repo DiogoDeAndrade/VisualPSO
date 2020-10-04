@@ -24,6 +24,7 @@ public class CommandLineProcessor : MonoBehaviour
         bool        fof = false;
         float       limitX = 100.0f;
         int         seed = 12345;
+        bool        seedParam = false;
 
         customPreset.perlinOffset.x = UnityEngine.Random.Range(-1000.0f, 1000.0f);
         customPreset.perlinOffset.y = UnityEngine.Random.Range(-1000.0f, 1000.0f);
@@ -61,8 +62,6 @@ public class CommandLineProcessor : MonoBehaviour
             }
             else if (args[i] == "-random")
             {
-                activeObject = randomPreset.gameObject;
-                MakeRandom();
             }
             else if (args[i] == "-connectivity")
             {
@@ -167,7 +166,10 @@ public class CommandLineProcessor : MonoBehaviour
             }
             else if (args[i].StartsWith("-rngseed"))
             {
-                int.TryParse(args[i].Substring(8), out seed);
+                if (int.TryParse(args[i].Substring(8), out seed))
+                {
+                    seedParam = true;
+                }
             }
             else
             {
@@ -188,18 +190,21 @@ public class CommandLineProcessor : MonoBehaviour
         else if (activeObject == null)
         {
             activeObject = randomPreset.gameObject;
-            MakeRandom();
+            MakeRandom((seedParam)?(seed):((int)DateTime.UtcNow.Ticks));
         }
 
         activeObject.SetActive(true);
 
         PSOConfig config = activeObject.GetComponent<PSOConfig>();
-        config.seed = seed;
-
-        PSOCameraController controller = FindObjectOfType<PSOCameraController>();
-        if (controller)
+        if (seedParam)
         {
-            controller.SetSeed(seed);
+            config.seed = seed;
+
+            PSOCameraController controller = FindObjectOfType<PSOCameraController>();
+            if (controller)
+            {
+                controller.SetSeed(seed);
+            }
         }
 
         PSORender psoRender = activeObject.GetComponent<PSORender>();
@@ -231,11 +236,11 @@ public class CommandLineProcessor : MonoBehaviour
         }
     }
 
-    void MakeRandom()
+    void MakeRandom(int seed)
     {
         var psoRender = randomPreset.GetComponent<PSORender>();
 
-        var rnd = new System.Random((int)DateTime.UtcNow.Ticks);
+        var rnd = new System.Random(seed);
 
         randomPreset.seed = (int)DateTime.UtcNow.Ticks;
 

@@ -227,11 +227,6 @@ public class PSOConfig : MonoBehaviour
         // Setup PSORender
         var psoRender = GetComponent<PSORender>();
         psoRender.enabled = true;
-        psoRender.runData = null;
-        psoRender.runText = "";
-        psoRender.topologyData = null;
-        psoRender.functionData = null;
-        psoRender.functionText = "";
         psoRender.function = ifunction;
         psoRender.functionSamples = functionSamplingSize;
         psoRender.functionSamplingInterval = new Vector2(initialX.x, initialX.y);

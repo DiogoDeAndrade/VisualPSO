@@ -193,6 +193,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 1
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -222,7 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -245,14 +245,9 @@ MonoBehaviour:
   omega: 0.5
   c1: 1
   c2: 1
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 3
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -345,6 +340,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 1
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -374,7 +370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -397,14 +392,9 @@ MonoBehaviour:
   omega: 0.5
   c1: 1
   c2: 1
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -497,6 +487,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -526,7 +517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -549,14 +539,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -649,6 +634,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: -20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -678,7 +664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -701,14 +686,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -801,6 +781,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -830,7 +811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -853,14 +833,9 @@ MonoBehaviour:
   omega: 0.5
   c1: 1
   c2: 1
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -953,6 +928,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -982,7 +958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -1005,14 +980,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -1105,6 +1075,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -1134,7 +1105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -1157,14 +1127,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -1257,6 +1222,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -1286,13 +1252,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
   maxEvaluations: 980000
   algorithm: 1
-  problem: 2
+  problem: 56
   perlinOctaves: 8
   perlinAmplitude: 20
   perlinFrequency: {x: 0.04, y: 0.04}
@@ -1306,17 +1271,12 @@ MonoBehaviour:
   xMax: 100
   vMax: 1
   chi: 1
-  omega: 0.729844
-  c1: 1.5
-  c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
+  omega: 0.7
+  c1: 1
+  c2: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -1457,6 +1417,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: -20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -1486,7 +1447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -1509,14 +1469,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -1609,6 +1564,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: -20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -1638,7 +1594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -1661,14 +1616,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -1761,6 +1711,7 @@ MonoBehaviour:
   fogOfFunction: 1
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -1790,7 +1741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -1813,14 +1763,9 @@ MonoBehaviour:
   omega: 0.5
   c1: 1
   c2: 1
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -1913,6 +1858,7 @@ MonoBehaviour:
   fogOfFunction: 1
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -1942,7 +1888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -1965,14 +1910,9 @@ MonoBehaviour:
   omega: 0.5
   c1: 2
   c2: 0.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 5, y: 5}
   neighborhoodType: 1
@@ -2273,6 +2213,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 0.1
   particleScale: 4
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -2302,7 +2243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -2325,14 +2265,9 @@ MonoBehaviour:
   omega: 0.5
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -10, y: 10}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -2425,6 +2360,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: -20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -2454,7 +2390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -2477,14 +2412,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -2577,6 +2507,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: -20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -2606,7 +2537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -2629,14 +2559,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -2795,6 +2720,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -2824,7 +2750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -2847,14 +2772,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -2947,6 +2867,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: -20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -2976,7 +2897,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -2999,14 +2919,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -3344,6 +3259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startBehaviour: {fileID: 0}
   globalScale: 1
+  testOcclusion: 0
   autoSwitch: 1
   minTime: 2
   maxTime: 4
@@ -3563,6 +3479,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -3592,7 +3509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -3615,14 +3531,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -3715,6 +3626,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 1
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -3744,7 +3656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -3767,14 +3678,9 @@ MonoBehaviour:
   omega: 0.5
   c1: 5
   c2: 0
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -3867,6 +3773,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 1
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -3896,7 +3803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -3919,14 +3825,9 @@ MonoBehaviour:
   omega: 0.5
   c1: 2
   c2: 10
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -4019,6 +3920,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -4048,7 +3950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -4071,14 +3972,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -4327,6 +4223,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: -20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -4356,7 +4253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -4379,14 +4275,9 @@ MonoBehaviour:
   omega: 0.5
   c1: 1
   c2: 1
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -4479,6 +4370,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: -20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -4508,7 +4400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -4531,14 +4422,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -4631,6 +4517,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: -20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -4660,7 +4547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -4683,14 +4569,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -4783,6 +4664,7 @@ MonoBehaviour:
   fogOfFunction: 1
   yScale: 1
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -4812,7 +4694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -4835,14 +4716,9 @@ MonoBehaviour:
   omega: 0.5
   c1: 1
   c2: 4
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1
@@ -4935,6 +4811,7 @@ MonoBehaviour:
   fogOfFunction: 0
   yScale: -20
   particleScale: 1
+  trailScale: 1
   displayConnectivity: 0
   playSpeed: 1
   mainCamera: {fileID: 1687258584}
@@ -4964,7 +4841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOpenPSONET: 1
   functionSamplingSize: 257
   seed: 12345
   maxIterations: 10000
@@ -4987,14 +4863,9 @@ MonoBehaviour:
   omega: 0.729844
   c1: 1.5
   c2: 1.5
-  weightStrategy: 0
-  cStrategy: 0
-  assymetricInitialization: 1
   initialX: {x: -100, y: 100}
-  numExtraRandomNeighbours: 0
   stopCriterion: 0.00001
   continueAfterStop: 1
-  watershedStrategy: 0
   topology: 1
   dimension: {x: 7, y: 7}
   neighborhoodType: 1

@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6289900009658636712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8150042710843470927}
+  - component: {fileID: 3057698509221596388}
+  - component: {fileID: 2881643875138816810}
+  m_Layer: 0
+  m_Name: TestVisualPSO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8150042710843470927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289900009658636712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3057698509221596388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289900009658636712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180833a53a6445844a48adf9dd2c368d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  functionSamplingSize: 257
+  seed: 12345
+  maxIterations: 10000
+  maxEvaluations: 980000
+  algorithm: 1
+  problem: 56
+  perlinOctaves: 8
+  perlinAmplitude: 20
+  perlinFrequency: {x: 0.04, y: 0.04}
+  perlinAmplitudePerOctave: 0.5
+  perlinFrequencyPerOctave: 2
+  perlinOffset: {x: 0, y: 0}
+  image: {fileID: 0}
+  invertImage: 0
+  sampleRadius: 5
+  useStimulus: 0
+  xMax: 100
+  vMax: 1
+  chi: 1
+  omega: 0.729844
+  c1: 1.5
+  c2: 1.5
+  initialX: {x: -100, y: 100}
+  stopCriterion: 0.00001
+  continueAfterStop: 1
+  topology: 1
+  dimension: {x: 7, y: 7}
+  neighborhoodType: 1
+  nParticles: 10
+  radius: 1
+  tgf_filename: graphs/ring_n10r1.tgf
+--- !u!114 &2881643875138816810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289900009658636712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5cfcc3b712a8a14a9fe7dfcd2577020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runData: {fileID: 4900000, guid: dbf82cd5e4965d44497c08181150e916, type: 3}
+  functionData: {fileID: 4900000, guid: 761493dc23bde67498cdc85d89c4551e, type: 3}
+  topologyData: {fileID: 4900000, guid: 031b53958b9e66b4d8cb5a8599af5d5c, type: 3}
+  timePerIteration: 0.1
+  particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
+    type: 3}
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
+    type: 3}
+  materialOverride: {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
+  colorParticles:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.9034482, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0.41888872, b: 0.17647058, a: 0}
+    key3: {r: 0.8584906, g: 0.8216287, b: 0.21462265, a: 0}
+    key4: {r: 0.45490196, g: 0.6784314, b: 0.473862, a: 0}
+    key5: {r: 0.15566039, g: 0.5170546, b: 1, a: 0}
+    key6: {r: 0.9657564, g: 0, b: 1, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 23982
+    ctime3: 34192
+    ctime4: 43975
+    ctime5: 52001
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  moveY: 1
+  fogOfFunction: 0
+  yScale: 1
+  particleScale: 1
+  trailScale: 1
+  displayConnectivity: 0
+  playSpeed: 1
+  mainCamera: {fileID: 0}
+  boundary:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  extentsY: {x: 0, y: 0}
+  totalTime: 0
+  functionText: 
+  runText: 
+  topologyText: 
+  functionSamples: 0
+  functionSamplingInterval: {x: 0, y: 0}
+  texture: {fileID: 0}
