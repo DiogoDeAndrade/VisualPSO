@@ -22,11 +22,28 @@ all available options.
 
 ### Presets options
 
-Parameter      | Description
--------------- | -----------
--preset\<number> | Selects one of the builtin presets. Number must be an integer in the range [0, 13]
-<nobr>-experiment\<number></nobr> | Selects one of the builtin experiments, as represented in this article. Number must be na integer in the range [1,10].
--random | Generates a random visualization. Same as not passing any parameter. 
+<table>
+<thead>
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>-preset&lt;number&gt;</td>
+    <td>Selects one of the builtin presets. Number must be an integer in the range [0, 13]</td>
+  </tr>
+  <tr>
+    <td><nobr>-experiment&lt;number&gt;</nobr></td>
+    <td>Selects one of the builtin experiments, as represented in this article. Number must be na integer in the range [1,10].</td>
+  </tr>
+  <tr>
+    <td>-random</td>
+    <td>Generates a random visualization. Same as not passing any parameter.</td>
+  </tr>
+</tbody>
+</table>
 
 ### Function selection options
 
