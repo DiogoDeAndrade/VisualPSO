@@ -24,15 +24,16 @@ all available options.
 
 Parameter      | Description
 -------------- | -----------
--preset\<number>| Selects one of the builtin presets. Number must be an integer in the range [0, 13]
--experiment\<number>| Selects one of the builtin experiments, as represented in this article. Number must be na integer in the range [1,10].
+-preset\<number> | Selects one of the builtin presets. Number must be an integer in the range [0, 13]
+<nobr>-experiment\<number></nobr> | Selects one of the builtin experiments, as represented in this article. Number must be na integer in the range [1,10].
 -random | Generates a random visualization. Same as not passing any parameter. 
 
 ### Function selection options
+
 Parameter      | Description
 -------------- | -----------
 -landscape | Generates a Perlin based landscape function. The Perlin noise PCG options can be used to further customize the function
--imagesaturation| Uses an image's HSV Saturation as a function. The image options can be used to further customize the function
+<nobr>-imagesaturation</nobr> | Uses an image's HSV Saturation as a function. The image options can be used to further customize the function
 -imagevalue | Uses an image's HSV Value (brightness) as a function. The image options can be used to further customize the function
 -ralphmean | Uses Ralph's bell curve mean as function. The image options can be used to further customize the function
 -ralphvar | Uses Ralph's bell curve variance as function. The image options can be used to further customize the 
@@ -45,7 +46,7 @@ Parameter      | Description
 -ackley | Use the Ackley function.
 -weierstrass | Use the Weierstrass function.
 
-### Perlin noise PCG options                     
+### Perlin noise PCG options
 
 Parameter      | Description
 -------------- | -----------
@@ -57,13 +58,14 @@ Parameter      | Description
 
 Parameter              | Description
 ---------------------- | -----------
--sampleradius\<radius> | Defines the radius to use as the neighborhood for computing Ralph's bell curve. Note that this is a O(n²)operation, so large radius will take some time to compute. Default value is 5.
+<nobr>-sampleradius\<radius></nobr> | Defines the radius to use as the neighborhood for computing Ralph's bell curve. Note that this is a O(n²)operation, so large radius will take some time to compute. Default value is 5.
 -useresponse | Use the response value for computing Ralph's bell curve. This is the default.
 -usestimulus | Use the stimulus value, instead of the more traditional response value for computing Ralph's bell curve.
 -image\<index> | Selects a predefined image as the source image. Index must be na integer in the range [0,3].
 -image\<filename> | Loads an image from the given path and uses it as source image. Only JPG and PNG are valid.
 
 ### PSO options
+
 Parameter              | Description
 ---------------------- | -----------
 -w\<value> | Specifies ω. Default is 0.7.
@@ -73,14 +75,16 @@ Parameter              | Description
 -vmax\<value> | Specifies the maximum speed for the particles. Default is 1
 
 ### Visual options
+
 Parameter              | Description
 ---------------------- | -----------
 -scale\<value> | Allows to scale the Y values of function. Default is 1.
--material\<index> | Selects the material to use for the visualization. Index must be an integer in the range [0,5]. Default is 0.
+<nobr>-material\<index></nobr> | Selects the material to use for the visualization. Index must be an integer in the range [0,5]. Default is 0.
 -fof | Enables the fog of function option.
 -connectivity | Displays the particle connectivity.
 
 ### General options
+
 Parameter              | Description
 ---------------------- | -----------
 -speed\<number> | Defines the speed of the simulation. Default is 1, 2 is twice the speed, 0.5 is half-speed.
@@ -104,7 +108,7 @@ To use the Unity project, the scene used for the executable is ExperimentScene.
 Under Prefabs, there is a sample prefab that can be used for testing called TestVisualPSO. It can drag be dropped in the scene and
 adjust the parameters of the PSO and the visual display on the instance.
 
-To configure the PSO itself, you can modify the parameters on the PSOConfig behaviour:
+To configure the PSO itself, you can modify the parameters on the PSOConfig behavior:
 
 ![Image](https://github.com/DiogoDeAndrade/VisualPSO/raw/master/Screenshots/unity_pso_config.png)
 
@@ -142,7 +146,7 @@ Play Speed | Allows to specify the simulation speed, can be changed during runti
 If the CommandLineProcessor object is active on play, the command line is going to be parsed and two simulation will be ran at the same
 time, so it should be disabled unless a build that requires command line processing is being performed.
 
-Camera behaviour is controlled through the PSOCameraBehaviour's on the Main Camera object. Control is done on the PSOCameraController behavior.
+Camera behavior is controlled through the PSOCameraBehavior's on the Main Camera object. Control is done on the PSOCameraController behavior.
 
 ## Reproducible behavior generation
 
@@ -158,9 +162,8 @@ If you use this function in your work, please cite the following reference:
 
 ## Acknowledgements
 
-[OpenPSO.NET]
-
-[Naughty Attributes] by Denis Rizov ([MIT_LICENSE])
+* [OpenPSO.NET]
+* [Naughty Attributes] by Denis Rizov ([MIT_LICENSE])
 
 ## License
 
@@ -173,4 +176,4 @@ If you use this function in your work, please cite the following reference:
 
 [Naughty Attributes]:https://github.com/dbrizov/NaughtyAttributes
 [OpenPSO.NET]:https://github.com/fakenmc/openpso.net
-[MIT_LICENSE]:(MIT_LICENSE)
+[MIT_LICENSE]:(Assets/Plugins/NaughtyAttributes/LICENSE)
