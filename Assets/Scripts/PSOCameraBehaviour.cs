@@ -8,7 +8,7 @@ public class PSOCameraBehaviour : MonoBehaviour
     [HideInInspector] public float  scale = 1.0f;
     [HideInInspector] public bool   testOcclusion = false;
 
-    public virtual bool Restart(float estimatedTime)
+    public virtual bool Restart(int seed, float estimatedTime)
     {
         return false;
     }

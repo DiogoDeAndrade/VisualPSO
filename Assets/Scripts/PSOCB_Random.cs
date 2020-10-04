@@ -22,9 +22,10 @@ public class PSOCB_Random : PSOCameraBehaviour
     [ShowIf("HasTargetParticle")]
     public float            maxSpeed = 5.0f;
 
-    Vector3     startLookPos, targetPos;
-    float       elapsedTime = 0.0f;
-    Transform   particleTransform;
+    Vector3         startLookPos, targetPos;
+    float           elapsedTime = 0.0f;
+    Transform       particleTransform;
+    System.Random   rndGen;
 
     bool HasTargetParticle()
     {
@@ -39,10 +40,11 @@ public class PSOCB_Random : PSOCameraBehaviour
         }
     }
 
-    override public bool Restart(float estimatedTime)
+    override public bool Restart(int seed, float estimatedTime)
     {
         int tries = 0;
         int maxTries = 25;
+        rndGen = new System.Random(seed);
 
         while (tries < maxTries)
         {
@@ -50,7 +52,7 @@ public class PSOCB_Random : PSOCameraBehaviour
 
             PSORender psoRender = FindObjectOfType<PSORender>();
 
-            startLookPos = new Vector3(Random.Range(-1, 1), Random.Range(0.5f, 1.5f), Random.Range(-1, 1)).normalized * outerRadius * scale;
+            startLookPos = new Vector3(rndGen.Range(-1, 1), rndGen.Range(0.5f, 1.5f), rndGen.Range(-1, 1)).normalized * outerRadius * scale;
 
             startLookPos.y = Mathf.Max(startLookPos.y, psoRender.extentsY.y);
 
@@ -59,7 +61,7 @@ public class PSOCB_Random : PSOCameraBehaviour
             switch (targetParticle)
             {
                 case TargetParticle.None:
-                    targetPos = Random.onUnitSphere * innerRadius * scale;
+                    targetPos = rndGen.onUnitSphere() * innerRadius * scale;
                     if (targetPos.y < 0) targetPos.y = Mathf.Abs(targetPos.y);
                     break;
                 case TargetParticle.Best:
@@ -69,7 +71,8 @@ public class PSOCB_Random : PSOCameraBehaviour
                     particle = psoRender.GetBestParticle();
                     break;
                 case TargetParticle.Random:
-                    particle = psoRender.GetRandomParticle();
+                    int index = rndGen.Range(0, psoRender.GetParticleCount());
+                    particle = psoRender.GetParticle(index);
                     break;
                 default:
                     break;

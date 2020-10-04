@@ -196,6 +196,12 @@ public class CommandLineProcessor : MonoBehaviour
         PSOConfig config = activeObject.GetComponent<PSOConfig>();
         config.seed = seed;
 
+        PSOCameraController controller = FindObjectOfType<PSOCameraController>();
+        if (controller)
+        {
+            controller.SetSeed(seed);
+        }
+
         PSORender psoRender = activeObject.GetComponent<PSORender>();
         psoRender.playSpeed = speed;
 

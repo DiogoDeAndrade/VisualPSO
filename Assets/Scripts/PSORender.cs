@@ -16,6 +16,7 @@ public class PSORender : MonoBehaviour
     public bool         fogOfFunction = false;
     public float        yScale = 1.0f;
     public float        particleScale = 1.0f;
+    public float        trailScale = 1.0f;
     public bool         displayConnectivity = true;
     [Range(0.0f, 10.0f)]
     public float        playSpeed = 1.0f;
@@ -154,6 +155,7 @@ public class PSORender : MonoBehaviour
             particle.color = colorParticles.Evaluate(Random.Range(0.0f, 1.0f));
             particle.totalTime = totalTime;
             particle.offsetY *= scale * particleScale;
+            particle.trailScale = trailScale;
         }
 
         if (displayConnectivity)
@@ -228,6 +230,20 @@ public class PSORender : MonoBehaviour
         if (particles == null) return null;
 
         return particles[Random.Range(0, particles.Count)];
+    }
+
+    public int GetParticleCount()
+    {
+        if (particles == null) return 0;
+
+        return particles.Count;
+    }
+
+    public PSOParticle GetParticle(int index)
+    {
+        if (particles == null) return null;
+
+        return particles[index];
     }
 
     public PSOParticle GetBestParticle()
