@@ -33,7 +33,7 @@ Parameter      | Description
 Parameter      | Description
 -------------- | -----------
 -landscape | Generates a Perlin based landscape function. The Perlin noise PCG options can be used to further customize the function
-<nobr>-imagesaturation</nobr> | Uses an image's HSV Saturation as a function. The image options can be used to further customize the function
+-&#8288;imagesaturation | Uses an image's HSV Saturation as a function. The image options can be used to further customize the function
 -imagevalue | Uses an image's HSV Value (brightness) as a function. The image options can be used to further customize the function
 -ralphmean | Uses Ralph's bell curve mean as function. The image options can be used to further customize the function
 -ralphvar | Uses Ralph's bell curve variance as function. The image options can be used to further customize the 
@@ -58,7 +58,7 @@ Parameter      | Description
 
 Parameter              | Description
 ---------------------- | -----------
-<nobr>-sampleradius\<radius></nobr> | Defines the radius to use as the neighborhood for computing Ralph's bell curve. Note that this is a O(n²)operation, so large radius will take some time to compute. Default value is 5.
+-&#8288;sampleradius\<radius> | Defines the radius to use as the neighborhood for computing Ralph's bell curve. Note that this is a O(n²)operation, so large radius will take some time to compute. Default value is 5.
 -useresponse | Use the response value for computing Ralph's bell curve. This is the default.
 -usestimulus | Use the stimulus value, instead of the more traditional response value for computing Ralph's bell curve.
 -image\<index> | Selects a predefined image as the source image. Index must be na integer in the range [0,3].
@@ -79,7 +79,7 @@ Parameter              | Description
 Parameter              | Description
 ---------------------- | -----------
 -scale\<value> | Allows to scale the Y values of function. Default is 1.
-<nobr>-material\<index></nobr> | Selects the material to use for the visualization. Index must be an integer in the range [0,5]. Default is 0.
+-&#8288;material\<index> | Selects the material to use for the visualization. Index must be an integer in the range [0,5]. Default is 0.
 -fof | Enables the fog of function option.
 -connectivity | Displays the particle connectivity.
 
