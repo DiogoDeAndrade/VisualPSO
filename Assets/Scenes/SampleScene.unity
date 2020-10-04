@@ -157,7 +157,7 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
     type: 3}
   materialOverride: {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
   colorParticles:
@@ -309,7 +309,7 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
     type: 3}
   materialOverride: {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
   colorParticles:
@@ -765,7 +765,7 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
     type: 3}
   materialOverride: {fileID: 2100000, guid: 57e83d249ce3d6742a6c970d711b56a8, type: 2}
   colorParticles:
@@ -1725,7 +1725,7 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
     type: 3}
   materialOverride: {fileID: 2100000, guid: eca6802b31ba1c3438fae543ce489885, type: 2}
   colorParticles:
@@ -1877,7 +1877,7 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
     type: 3}
   materialOverride: {fileID: 2100000, guid: 3fbfbd7d52eff8349976b79a9f8b8a4b, type: 2}
   colorParticles:
@@ -2237,7 +2237,7 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
     type: 3}
   materialOverride: {fileID: 2100000, guid: cc7981c99f9926440824a105b1b7fc11, type: 2}
   colorParticles:
@@ -3232,6 +3232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoStart: 1
   scale: 1
+  testOcclusion: 0
   innerRadius: 15
   outerRadius: 200
   zoomIn: 1
@@ -3360,6 +3361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoStart: 1
   scale: 1
+  testOcclusion: 0
   innerRadius: 15
   outerRadius: 40
   zoomIn: 1
@@ -3383,6 +3385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoStart: 1
   scale: 1
+  testOcclusion: 0
   innerRadius: 15
   outerRadius: 40
   zoomIn: 1
@@ -3406,6 +3409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoStart: 1
   scale: 1
+  testOcclusion: 0
   innerRadius: 15
   outerRadius: 30
   zoomIn: 1
@@ -3429,6 +3433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoStart: 1
   scale: 1
+  testOcclusion: 0
   innerRadius: 15
   outerRadius: 100
   zoomIn: 1
@@ -3452,6 +3457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoStart: 1
   scale: 1
+  testOcclusion: 0
   innerRadius: 15
   outerRadius: 100
   zoomIn: 1
@@ -3475,6 +3481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoStart: 1
   scale: 1
+  testOcclusion: 0
   innerRadius: 15
   outerRadius: 100
   zoomIn: 1
@@ -3672,7 +3679,7 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
     type: 3}
   materialOverride: {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
   colorParticles:
@@ -3824,7 +3831,7 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
     type: 3}
   materialOverride: {fileID: 2100000, guid: 3707a2044e2b9b84cbc0ba54475f79f6, type: 2}
   colorParticles:
@@ -4284,7 +4291,7 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
     type: 3}
   materialOverride: {fileID: 2100000, guid: 57e83d249ce3d6742a6c970d711b56a8, type: 2}
   colorParticles:
@@ -4740,7 +4747,7 @@ MonoBehaviour:
   timePerIteration: 0.1
   particlePrefab: {fileID: 5476676241385165964, guid: 5ef445594831adb43a5038a22ccea159,
     type: 3}
-  functionPrefab: {fileID: 1822397110844927103, guid: 5a87329102bbf7b45a1ec7994745422d,
+  functionPrefab: {fileID: 603825890813329370, guid: 51f0a41c140a32343a1be86868ddd1d7,
     type: 3}
   materialOverride: {fileID: 2100000, guid: eca6802b31ba1c3438fae543ce489885, type: 2}
   colorParticles:

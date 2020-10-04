@@ -6,9 +6,10 @@ public class PSOCameraBehaviour : MonoBehaviour
 {
     [HideInInspector] public bool   autoStart = true;
     [HideInInspector] public float  scale = 1.0f;
+    [HideInInspector] public bool   testOcclusion = false;
 
-    public virtual void Restart(float estimatedTime)
+    public virtual bool Restart(float estimatedTime)
     {
-
+        return false;
     }
 }

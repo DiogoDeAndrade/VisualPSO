@@ -7,6 +7,7 @@ public class PSOCameraController : MonoBehaviour
 {
     public PSOCameraBehaviour   startBehaviour;
     public float                globalScale = 1.0f;
+    public bool                 testOcclusion = false;
     public bool                 autoSwitch;
     [ShowIf("autoSwitch")]
     public float                minTime;
@@ -30,6 +31,7 @@ public class PSOCameraController : MonoBehaviour
             cb.enabled = false;
             cb.autoStart = false;
             cb.scale = globalScale;
+            cb.testOcclusion = testOcclusion;
         }
     }
 
@@ -37,9 +39,12 @@ public class PSOCameraController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
 
-        if (startBehaviour != null)
+        switchTimer = Random.Range(minTime, maxTime);
+        if (startBehaviour)
         {
-            Run(startBehaviour);
+            current = startBehaviour;
+            current.enabled = true;
+            current.Restart(switchTimer * 0.75f);
         }
     }
 
@@ -57,11 +62,11 @@ public class PSOCameraController : MonoBehaviour
         if (current == null)
         {
             // Choose a random one
-            Run(cameraBehaviours[Random.Range(0, cameraBehaviours.Length)]);
+            SelectNew();
         }
-    }
+    }    
 
-    void Run(PSOCameraBehaviour behaviour)
+    void SelectNew()
     {
         if (autoSwitch)
         {
@@ -72,9 +77,19 @@ public class PSOCameraController : MonoBehaviour
             switchTimer = 1.0f;
         }
 
-        current = behaviour;
-        current.enabled = true;
-        current.Restart(switchTimer * 0.75f);
+        int nTries = 0;
+        int maxTries = 5;
+
+        while (nTries < maxTries)
+        {
+            PSOCameraBehaviour behaviour = cameraBehaviours[Random.Range(0, cameraBehaviours.Length)];
+
+            current = behaviour;
+            current.enabled = true;
+            if (current.Restart(switchTimer * 0.75f)) break;
+
+            nTries++;
+        }
     }
 
     void Stop()

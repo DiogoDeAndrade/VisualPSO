@@ -39,53 +39,92 @@ public class PSOCB_Random : PSOCameraBehaviour
         }
     }
 
-    override public void Restart(float estimatedTime)
+    override public bool Restart(float estimatedTime)
     {
-        elapsedTime = 0;
+        int tries = 0;
+        int maxTries = 25;
 
-        PSORender psoRender = FindObjectOfType<PSORender>();
-
-        startLookPos = new Vector3(Random.Range(-1, 1), Random.Range(0.5f, 1.5f), Random.Range(-1, 1)).normalized * outerRadius * scale;
-
-        startLookPos.y = Mathf.Max(startLookPos.y, psoRender.extentsY.y);
-
-        PSOParticle particle = null;
-
-        switch (targetParticle)
+        while (tries < maxTries)
         {
-            case TargetParticle.None:
-                targetPos = Random.onUnitSphere * innerRadius * scale;
-                if (targetPos.y < 0) targetPos.y = Mathf.Abs(targetPos.y);
-                break;
-            case TargetParticle.Best:
-                particle = psoRender.GetBestParticle();
-                break;
-            case TargetParticle.Worst:
-                particle = psoRender.GetBestParticle();
-                break;
-            case TargetParticle.Random:
-                particle = psoRender.GetRandomParticle();
-                break;
-            default:
-                break;
-        }
+            elapsedTime = 0;
 
-        if (particle)
-        {
-            if (usePrediction)
+            PSORender psoRender = FindObjectOfType<PSORender>();
+
+            startLookPos = new Vector3(Random.Range(-1, 1), Random.Range(0.5f, 1.5f), Random.Range(-1, 1)).normalized * outerRadius * scale;
+
+            startLookPos.y = Mathf.Max(startLookPos.y, psoRender.extentsY.y);
+
+            PSOParticle particle = null;
+
+            switch (targetParticle)
             {
-                targetPos = particle.Predict(estimatedTime);
+                case TargetParticle.None:
+                    targetPos = Random.onUnitSphere * innerRadius * scale;
+                    if (targetPos.y < 0) targetPos.y = Mathf.Abs(targetPos.y);
+                    break;
+                case TargetParticle.Best:
+                    particle = psoRender.GetBestParticle();
+                    break;
+                case TargetParticle.Worst:
+                    particle = psoRender.GetBestParticle();
+                    break;
+                case TargetParticle.Random:
+                    particle = psoRender.GetRandomParticle();
+                    break;
+                default:
+                    break;
+            }
+
+            transform.position = startLookPos;
+
+            if (particle)
+            {
+                if (usePrediction)
+                {
+                    targetPos = particle.Predict(estimatedTime);
+                }
+                else
+                {
+                    particleTransform = particle.transform;
+                    targetPos = particleTransform.position;
+                }
+
+                Vector3 toTarget = targetPos - startLookPos;
+                Vector3 dir = toTarget.normalized;
+                float maxDist = toTarget.magnitude;
+
+                if (dir.y < -0.1f)
+                {
+                    // Check raycast
+                    if (!Physics.Raycast(startLookPos, dir, maxDist))
+                    {
+                        break;
+                    }
+                }
+
+                tries++;
             }
             else
             {
-                particleTransform = particle.transform;
-                targetPos = particleTransform.position;
+                Vector3 toTarget = targetPos - startLookPos;
+                Vector3 dir = toTarget.normalized;
+                float maxDist = toTarget.magnitude;
+
+                if (dir.y < -0.1f)
+                {
+                    break;
+                }
             }
         }
 
-        transform.position = startLookPos;
+        if (tries == maxTries)
+        {
+            return false;
+        }
 
         FixedUpdate();
+
+        return true;
     }
 
     void FixedUpdate()
